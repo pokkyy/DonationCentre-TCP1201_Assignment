@@ -1,0 +1,40 @@
+NGO – An NGO (non-governmental organization) is an organization that receives aids from a
+distribution center. An NGO has a name and manpower count. An NGO can perform the
+following tasks in the system:
+
+    a) Register and login an account at a DC.
+    b) Enter the aids (name, quantity, etc.) needed.
+    c) View the list of aids received and the donors of the aids (tabular format).
+
+Donor Phone Aids Quantity NGO Manpower
+D1 012-1111111 Biscuit 3 N1 10
+D2 012-1111112 Biscuit 2 N1 10
+
+https://www.w3schools.com/java/java_files_create.asp
+https://www.w3schools.com/java/java_files_read.asp
+
+for dc login;
+- no dupes
+- check if exist before writing it
+
+for aids needed;
+- have aids needed
+- would auto check which ngo wants by current ngo logged in
+
+- each ngo has its own manpower count
+
+
+!! CHECKLIST !!
+[ / ] Register and login at DC
+    [/] Obtain all login accs and save in map
+    [/] Check if exist and verify password
+    [/] Create new account
+        [/] Check if acc exists
+    [ ] exception handling
+[/] Enter aids needed
+    [/] Write to a file
+[/] View list of aids received and the donors of the aids (tabular format)
+    [/] for logged in NGO
+
+reminders for ur dumbass;
+- calling a method in another class = classname.methodname
