@@ -1,6 +1,6 @@
 /**
  * This is the donor class for donors who have donated aids to the NGO.
- * It is designed to be used in conjunction with the AidsNGO class.
+ * It is designed to be used in conjunction with the NGOAids class.
  * 
  * @author Anis Hazirah Mohamad Sabry
  * @version 17

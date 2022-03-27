@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 
  * Requires the following files to be able to function properly:
  * DCAccount.java, Donor.java, DonorAids.java, DonorDC.java, DonorLogin.java, aidsList.csv, aidsDonated.csv donorAccounts.csv
- * NGOLogin.java, NGODC.java, NGO.java, DonorNGO.java, AidsNGO.java, DonorNGO.java, aidsNeeded.csv
+ * NGOLogin.java, NGODC.java, NGO.java, DonorNGO.java, NGOAids.java, DonorNGO.java, aidsNeeded.csv
  * 
  * @author Anis Hazirah binti Mohamad Sabry
  * @version 17
