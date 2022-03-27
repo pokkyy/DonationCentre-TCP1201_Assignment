@@ -83,6 +83,5 @@ public abstract class DCMenu {
         printWelcome();
         DCMenuOptions();
         printExitMessage();
-        System.out.println("DEEZ NUTS");
     }
 }
