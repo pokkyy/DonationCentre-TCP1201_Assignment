@@ -39,7 +39,7 @@ public class DonorDCOptions {
         System.out.print("Enter new phone number: ");
         String phoneNumber = input.nextLine();
         if (phoneNumber.length() > 12) {    // msian phone numbers cant be more than 12 characters long
-            System.out.println("ERROR! Phone number is too long.");
+            System.out.println("ERROR: Phone number is too long.");
             do {
                 System.out.print("Please enter a valid phone number: ");
                 phoneNumber = input.nextLine();
@@ -73,7 +73,7 @@ public class DonorDCOptions {
             int quantity = input.nextInt();
             if (quantity < 0)
                 do {
-                    System.out.print ("ERROR: Invalid input");
+                    System.out.print ("ERROR: Invalid input.");
                     System.out.println("Please enter a positive number: ");
                     quantity = input.nextInt();
                 } while (quantity < 0);

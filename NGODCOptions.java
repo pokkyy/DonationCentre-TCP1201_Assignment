@@ -45,7 +45,8 @@ public class NGODCOptions {
             System.out.println("New manpower = " + user.getManpower());
             System.out.println();
         } catch (InputMismatchException e) {
-            System.out.println("ERROR: Please enter a valid number.");
+            System.out.println("ERROR: Invalid input");
+            System.out.println("Please enter a valid number.");
         }
         System.out.println();
         System.out.println("Returning to main menu.");

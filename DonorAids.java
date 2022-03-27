@@ -45,7 +45,8 @@ public class DonorAids {
             aidsFile.close();
             System.out.println("Input successfully added.");
         } catch (IOException e) {
-            System.out.println("ERROR: Unable to load file. Please try again.");
+            System.out.println("ERROR: Unable to load data.");
+            System.out.println("Please verify that you have the file 'aidsDonated.csv'");
         }
     }
     /**
@@ -106,7 +107,8 @@ public class DonorAids {
                 }
             Collections.sort(aidsList);
         } catch (IOException e) {
-            System.out.println("ERROR: Unable to load file. Please try again");
+            System.out.println("ERROR: Unable to load data.");
+            System.out.println("Please verify that you have the file '" + filename + ".csv'");
         }
 
         return aidsList;
@@ -143,7 +145,8 @@ public class DonorAids {
             }
             Collections.sort(aidsList);
         } catch (IOException e) {
-            System.out.println("ERROR: Unable to load file. Please try again");
+            System.out.println("ERROR: Unable to load data.");
+            System.out.println("Please verify that you have the file '" + filename + ".csv'");
         }
         return aidsList;
     }

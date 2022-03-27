@@ -72,7 +72,8 @@ public class Donor extends DCAccount implements Comparable<Donor> {
             }
             DonorFile.close();
         } catch (IOException e) {
-            System.out.println("Error changing manpower. Please try again.");
+            System.out.println("ERROR: Unable to change phone number.");
+            System.out.println("Please verify that you have the file 'DonorAccounts.csv'");
         }
     }
     /**
@@ -100,7 +101,8 @@ public class Donor extends DCAccount implements Comparable<Donor> {
 
                 System.out.println("Password changed successfully.");
             } catch (IOException e) {
-                System.out.println("Error changing password. Please try again.");
+                System.out.println("ERROR: Unable to change password.");
+                System.out.println("Please verify that you have the file 'DonorAccounts.csv'");
             }
         }
     }

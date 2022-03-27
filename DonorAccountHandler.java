@@ -76,7 +76,8 @@ public class DonorAccountHandler {
                 Donors.add(account);
             }
         } catch (IOException e) {
-            System.out.println("Error loading data from file. Please try again.");
+            System.out.println("ERROR: Unable to load data from file.");
+            System.out.println("Please verify that you have the file 'DonorAccounts.csv'");
         }        
 
         return Donors;

@@ -77,7 +77,8 @@ public class NGO extends DCAccount implements Comparable<NGO>{
 
                 System.out.println("Password changed successfully.");
             } catch (IOException e) {
-                System.out.println("Error changing password. Please try again.");
+                System.out.println("ERROR: Unable to change password.");
+                System.out.println("Please verify that you have the file 'NGOAccounts.csv'");
             }
         }
     }
@@ -100,7 +101,8 @@ public class NGO extends DCAccount implements Comparable<NGO>{
             }
             NGOFile.close();
         } catch (IOException e) {
-            System.out.println("Error changing manpower. Please try again.");
+            System.out.println("ERROR: Unable to change manpower.");
+            System.out.println("Please verify that you have the file 'NGOAccounts.csv'");
         }
     }
     /**

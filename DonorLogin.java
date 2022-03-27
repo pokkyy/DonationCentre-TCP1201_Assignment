@@ -49,7 +49,8 @@ public abstract class DonorLogin {
                 Scanner input = new Scanner(System.in);
                 choice = input.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("ERROR: Please enter a valid choice.");
+                System.out.println("ERROR: Invalid input.");
+                System.out.println("Please enter a valid choice.");
             }
             switch (choice) {
                 case 1: loginDonor();
