@@ -116,7 +116,6 @@ public abstract class NGODC {
                         break;
                 case 3: aidsList = NGOAids.getAidsList(filename);
                         NGODCOptions.printAidsList(aidsList);
-                        break;
             }
         } while (choice != 0);
 
@@ -163,7 +162,6 @@ public abstract class NGODC {
                         break;
                 case 3: aidsList = NGOAids.getAidsList(filename);
                         NGODCOptions.printAidsNeeded(aidsList);
-                        break;
             }
         } while (choice != 0);
 

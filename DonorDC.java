@@ -130,7 +130,6 @@ public abstract class DonorDC {
                 case 3: user = DonorDCOptions.DonorIDFilter();
                         aidsList = DonorAids.getFilteredAidsList(user, filename);
                         DonorDCOptions.printAidsList(aidsList);
-                        break;
             }
         } while (choice != 0);
 
