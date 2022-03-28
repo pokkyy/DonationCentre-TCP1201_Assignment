@@ -1,7 +1,7 @@
 /**
- * Abstract class to be used with NGO. This intialises key components needed to manipulate the data and adds an additional 
+ * Abstract class to be used with NGO and Donor. This intialises key components needed to manipulate the data and adds an additional 
  * data field for password.
- * The password is used to log into the accounts registered at DCAccount
+ * The password is used to log into the accounts registered at a DC
  * 
  * @author Anis Hazirah binti Mohamad Sabry
  * @version 17

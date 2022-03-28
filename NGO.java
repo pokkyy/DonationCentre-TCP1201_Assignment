@@ -126,20 +126,12 @@ public class NGO extends DCAccount implements Comparable<NGO>{
         return this.NGOName + "," + this.getPassword() + "," + this.manpower + "\n";
     }
     /**
-     * Returns the content of NGOName, password, and manpower in an appropriate string format
+     * Returns the content of NGOName and manpower in an appropriate string format
      * 
      * @return returns a string of NGOName, password, and manpower
      */
     @Override
     public String toString() {
-        return this.NGOName + " " + this.getPassword() + " " + this.manpower;
-    }
-    /**
-     * Returns a string of an NGO object in a string format
-     * 
-     * @return string of NGOName and manpower
-     */
-    public String toStringNGO() {
         return this.NGOName + " " + this.manpower;
     }
 }

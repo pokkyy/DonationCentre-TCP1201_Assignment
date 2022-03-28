@@ -81,7 +81,7 @@ public class DonorAids {
         DonorAids currentAids = new DonorAids(currentDonor, input[2], Integer.valueOf(input[3]));
         NGO currentNGO = NGOAccountHandler.getUser(input[4]);
 
-        return currentAids.toString() + " " + currentNGO.toStringNGO();
+        return currentAids.toString() + " " + currentNGO.toString();
     }
     /**
      * Retrieves every entry from a file containing all of the aids donated by every Donor.

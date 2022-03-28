@@ -106,6 +106,12 @@ public class Donor extends DCAccount implements Comparable<Donor> {
             }
         }
     }
+    /**
+     * Compare between two donor accounts based on their DonorID
+     * 
+     * @return 1 if they matched, -1 if not
+     */
+    @Override
     public int compareTo(Donor o) {
         if (o.getDonorID().equals(this.getDonorID()))
             return 1;
