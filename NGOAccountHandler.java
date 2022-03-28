@@ -23,7 +23,7 @@ public class NGOAccountHandler {
      * @param manpower the manpower of an NGO the user chooses
      * @return false if an account exists within the file. True if it does not exist
      */
-    public static boolean createNGO(String name, String password, int manpower) {
+    protected static boolean createNGO(String name, String password, int manpower) {
         HashSet<NGO> registeredUsers = NGOAccountHandler.getNGOs();
         NGO newAccount = new NGO(name, password, manpower, true);
 
@@ -33,7 +33,7 @@ public class NGOAccountHandler {
                 return false;
             }
 
-        NGOAccountHandler.addNGOtoFile(newAccount);
+        newAccount.addNGOtoFile();
         return true;
     }
     /**
@@ -43,7 +43,7 @@ public class NGOAccountHandler {
      * @param password the password of the NGO
      * @return a true if the account exists and the password is correct, false otherwise
      */
-    public static boolean verifyAccount(String name, String password) {
+    protected static boolean verifyAccount(String name, String password) {
         HashSet<NGO> NGOs = getNGOs();
         for (NGO i : NGOs)
             if (i.getNGOName().equals(name))
@@ -91,7 +91,7 @@ public class NGOAccountHandler {
      * @param name the name of the NGO the user wants to find
      * @return the NGO object associated with the name given. If no matches are found, return null
      */
-    public static NGO getUser(String name) {
+    protected static NGO getUser(String name) {
         HashSet<NGO> NGOs = getNGOs();
         NGO currentUser = new NGO();
         for (NGO i: NGOs)
@@ -102,48 +102,13 @@ public class NGOAccountHandler {
         return null;
     }
     /**
-     * Writes an NGO account into the NGOAccounts.csv file
-     * 
-     * @param account the account of the NGO to be written into the file
-     */
-    protected static void addNGOtoFile(NGO account) {
-        try {
-            Writer NGOFile = new FileWriter("NGOAccounts.csv", true);
-            NGOFile.write(account.toCSVString());
-            NGOFile.close();
-        } catch (IOException e) {
-            System.out.println("Unable to write to file. Please try again.");
-        }
-    }
-    /**
-     * Sets an NGO's account status to inactive and deletes the data of their aids needed from the files.
-     * 
-     * @param account the account to be deleted.
-     */
-    public static void deleteNGO(NGO account) {
-        HashSet<NGO> accounts = getNGOs();
-        try {
-            NGOAids.removeFromFile(account);
-            Writer NGOFile = new FileWriter("NGOAccounts.csv", false);
-            for (NGO i: accounts) {
-                if (i.getNGOName().equals(account.getNGOName()))
-                    i.setStatus(false);
-                NGOFile.write(i.toCSVString());
-            }
-            NGOFile.close();
-        } catch (IOException e) {
-            System.out.println("ERROR: Unable to delete account from file");
-            System.out.println("Please very that you have the file 'NGOAccounts.csv'");
-        }
-    }
-    /**
      * Sets an inactive account's status to active.
      * 
      * @param name the name of the account to be reactivated
      * @param password the password of the account to be reactivated
      * @return returns the status of the account. If it is reactivated then it returns true, else false.
      */
-    public static boolean reactiveNGO (String name, String password) {
+    protected static boolean reactiveNGO (String name, String password) {
         HashSet<NGO> accounts = getNGOs();
         boolean success = false;
 

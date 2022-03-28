@@ -61,7 +61,7 @@ public class NGO extends DCAccount implements Comparable<NGO>{
      * @param oldPassword the old password of the user who wants to change password
      * @param newPassword the new password for the user
      */
-    public void changePassword(String oldPassword, String newPassword) {        
+    protected void changePassword(String oldPassword, String newPassword) {        
         HashSet<NGO> NGOs = NGOAccountHandler.getNGOs();
         boolean verification = NGOAccountHandler.verifyAccount(this.getNGOName(), oldPassword);
         if (verification) {
@@ -87,7 +87,7 @@ public class NGO extends DCAccount implements Comparable<NGO>{
      * 
      * @param newManpower the new manpower for the user
      */
-    public void changeManpower(int newManpower) {
+    protected void changeManpower(int newManpower) {
         HashSet<NGO> NGOs = NGOAccountHandler.getNGOs();
         try {
             this.setManpower(newManpower);
@@ -101,6 +101,37 @@ public class NGO extends DCAccount implements Comparable<NGO>{
         } catch (IOException e) {
             System.out.println("ERROR: Unable to change manpower.");
             System.out.println("Please verify that you have the file 'NGOAccounts.csv'");
+        }
+    }
+    /**
+     * Writes an NGO account into the NGOAccounts.csv file
+     */
+    protected void addNGOtoFile() {
+        try {
+            Writer NGOFile = new FileWriter("NGOAccounts.csv", true);
+            NGOFile.write(this.toCSVString());
+            NGOFile.close();
+        } catch (IOException e) {
+            System.out.println("Unable to write to file. Please try again.");
+        }
+    }
+    /**
+     * Sets an NGO's account status to inactive and deletes the data of their aids needed from the files.
+     */
+    protected void deleteNGO() {
+        HashSet<NGO> accounts = NGOAccountHandler.getNGOs();
+        try {
+            NGOAids.removeFromFile(this);
+            Writer NGOFile = new FileWriter("NGOAccounts.csv", false);
+            for (NGO i: accounts) {
+                if (i.getNGOName().equals(this.getNGOName()))
+                    i.setStatus(false);
+                NGOFile.write(i.toCSVString());
+            }
+            NGOFile.close();
+        } catch (IOException e) {
+            System.out.println("ERROR: Unable to delete account from file");
+            System.out.println("Please very that you have the file 'NGOAccounts.csv'");
         }
     }
     /**

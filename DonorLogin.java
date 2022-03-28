@@ -66,7 +66,7 @@ public abstract class DonorLogin {
      * Users will enter their Donor ID and Donor password. The ID and password are verified before they are taken to the main menu.
      * If either Donor ID or Donor password is incorrect, the method will continue to ask the user for input until the correct one is received.
      */
-    public static void loginDonor() {
+    private static void loginDonor() {
         Scanner input = new Scanner(System.in);
         Donor user = new Donor();
         String DonorID;
@@ -91,7 +91,7 @@ public abstract class DonorLogin {
      * A user will input their desired Donor ID, Donor password, and the phone number.
      * If an account is already registered, the method will continue to ask the user for input until it has received the correct input.
      */
-    public static void registerDonor() {
+    private static void registerDonor() {
         Scanner input = new Scanner(System.in);
 
         boolean createAccount = false;
@@ -118,7 +118,7 @@ public abstract class DonorLogin {
     /**
      * Allows the user to reactive an inactive donor account
      */
-    public static void reactiveDonor() {
+    private static void reactiveDonor() {
         System.out.println();
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the DonorID: ");

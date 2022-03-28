@@ -37,7 +37,7 @@ public class DonorAids {
      * If the file is unable to be written to, the user will receive an error message.
      * 
      */
-    public void writeAidstoFile() {
+    protected void writeAidstoFile() {
         try {
             Writer aidsFile = new FileWriter("aidsDonated.csv", true);
             aidsFile.write(this.toCSVString());

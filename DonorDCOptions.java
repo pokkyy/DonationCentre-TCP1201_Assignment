@@ -61,7 +61,7 @@ public class DonorDCOptions {
      * @param user the account to delete.
      * @return true if the account was deleted, false otherwise
      */
-    public static boolean deleteAccount(Donor user) {
+    protected static boolean deleteAccount(Donor user) {
         System.out.println();
         System.out.println("Are you sure you would like to delete your account? This action cannot be undone.");
         System.out.println("[WARNING: Aids donated will NOT be deleted.]");
@@ -78,7 +78,7 @@ public class DonorDCOptions {
         }
 
         if (choice == 1) {
-            DonorAccountHandler.deleteDonor(user);
+            user.deleteDonor();
             System.out.println("Account deleted.");
             return true;
         }
@@ -95,7 +95,7 @@ public class DonorDCOptions {
      * 
      *  @param user the user logged in who will be donating the aids
      */
-    protected static void inputAids(Donor user) {
+    public static void inputAids(Donor user) {
         Scanner input = new Scanner(System.in);
         System.out.println();
         System.out.print    ("Please enter aids to donate: ");
@@ -147,7 +147,7 @@ public class DonorDCOptions {
      * 
      * @param list the list to be out put by the method
      */
-    protected static void printAidsList(ArrayList<String> list) {
+    public static void printAidsList(ArrayList<String> list) {
         System.out.println();
         if (list.size() != 0) {
             System.out.printf("%-8s %-15s %-20s %-9s %-4s %-9s\n", "Donor", "Phone", "Aids", "Quantity", "NGO", "Manpower");
@@ -169,7 +169,7 @@ public class DonorDCOptions {
      * 
      * @param list the list to be printed out by the method
      */
-    protected static void printAidsNeeded(ArrayList<String> list) {
+    public static void printAidsNeeded(ArrayList<String> list) {
         System.out.println();
         if (list.size() != 0) {
             System.out.printf("%-8s %-15s %-20s %-9s\n", "Donor", "Phone", "Aids", "Quantity");

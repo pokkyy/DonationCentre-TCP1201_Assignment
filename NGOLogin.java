@@ -68,7 +68,7 @@ public abstract class NGOLogin {
      * Users will enter their NGO name and NGO password. The name and password are verified before they are taken to the main menu.
      * If either NGO name or NGO password is incorrect, the method will continue to ask the user for input until the correct one is received.
      */
-    public static void loginNGO() {
+    private static void loginNGO() {
         Scanner input = new Scanner(System.in);
         NGO user = new NGO();
         String NGOName;
@@ -93,7 +93,7 @@ public abstract class NGOLogin {
      * A user will input their desired NGO name, NGO password, and the manpower.
      * If an account is already registered, the method will continue to ask the user for input until it has received the correct input.
      */
-    public static void registerNGO() {
+    private static void registerNGO() {
         Scanner input = new Scanner(System.in);
 
         boolean createAccount = false;
@@ -118,7 +118,7 @@ public abstract class NGOLogin {
     /**
      * Allows the user to reactive an inactive NGO account
      */
-    public static void reactiveNGO() {
+    private static void reactiveNGO() {
         System.out.println();
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the name of the NGO: ");

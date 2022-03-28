@@ -23,7 +23,7 @@ public class DonorAccountHandler {
      * @param phoneNumber the phone number of the donor
      * @return false if an account exists within the file, true if it does not exist
      */
-    public static boolean createDonor(String donorID, String password, String phoneNumber) {
+    protected static boolean createDonor(String donorID, String password, String phoneNumber) {
         HashSet<Donor> DonorProfile = getDonors();
         Donor newAccount = new Donor(donorID, password, phoneNumber, true);
 
@@ -33,7 +33,7 @@ public class DonorAccountHandler {
                 return false;
             }
             
-        addDonortoFile(newAccount);
+        newAccount.addDonortoFile();
         return true;
 
     }
@@ -44,7 +44,7 @@ public class DonorAccountHandler {
      * @param password the password of the donor account
      * @return a true if the account exists and the password is correct, false otherwise.
      */
-    public static boolean verifyAccount(String donorID, String password) {
+    protected static boolean verifyAccount(String donorID, String password) {
         HashSet<Donor> Donors = getDonors();
 
         for (Donor i : Donors)
@@ -92,7 +92,7 @@ public class DonorAccountHandler {
      * @param donorID the donorID of the donor the user wishes to find
      * @return the donor object associated with the donorID given. If no matches are found, return null.
      */
-    public static Donor getUser(String donorID) {
+    protected static Donor getUser(String donorID) {
         HashSet<Donor> Donors = getDonors();
         Donor currentUser = new Donor();
         for (Donor i: Donors)
@@ -103,48 +103,13 @@ public class DonorAccountHandler {
         return null;
     }
     /**
-     * Write a donor account into the DonorAccounts.csv file
-     * 
-     * @param account the account of the donor to be written into the file
-     */
-    private static void addDonortoFile(Donor account) {
-        try {
-            Writer DonorFile = new FileWriter("DonorAccounts.csv", true);
-            DonorFile.write(account.toCSVString());
-            DonorFile.close();
-        } catch (IOException e) {
-            System.out.println("Unable to write to file. Please try again.");
-        }
-    }
-    /**
-     * Sets a donor account's status to inactive.
-     * Data concerning the donations they have made are not deleted.
-     * 
-     * @param account the account to be deleted.
-     */
-    public static void deleteDonor(Donor account) {
-        HashSet<Donor> accounts = getDonors();
-        try {
-            Writer DonorFile = new FileWriter("DonorAccounts.csv", false);
-            for (Donor i: accounts) {
-                if (i.compareTo(account) > 0)
-                    i.setStatus(false);
-                DonorFile.write(i.toCSVString());
-            }
-            DonorFile.close();
-        } catch (IOException e) {
-            System.out.println("ERROR: Unable to delete account from file");
-            System.out.println("Please very that you have the file 'DonorAccounts.csv'");
-        }
-    }
-    /**
      * Sets an inactive account's status to active.
      * 
      * @param name the name of the account to be reactivated
      * @param password the password of the account to be reactivated
      * @return returns the status of the account. If it is reactivated then it returns true, else false.
      */
-    public static boolean reactiveDonor (String name, String password) {
+    protected static boolean reactiveDonor (String name, String password) {
         HashSet<Donor> accounts = getDonors();
         boolean success = false;
 

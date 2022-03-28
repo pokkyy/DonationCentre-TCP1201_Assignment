@@ -58,7 +58,7 @@ public class Donor extends DCAccount implements Comparable<Donor> {
      * 
      * @param newPhoneNumber the new phone number for Donor
      */
-    public void changePhoneNumber(String newPhoneNumber) {
+    protected void changePhoneNumber(String newPhoneNumber) {
         HashSet<Donor> Donors = DonorAccountHandler.getDonors();
         try { 
             this.setPhoneNumber(newPhoneNumber);
@@ -82,7 +82,7 @@ public class Donor extends DCAccount implements Comparable<Donor> {
      * @param oldPassword the old password of the user who wants to change their password
      * @param newPassword the new password for the user
      */
-    public void changePassword(String oldPassword, String newPassword) {
+    protected void changePassword(String oldPassword, String newPassword) {
         HashSet<Donor> Donors = DonorAccountHandler.getDonors();
         boolean verification = DonorAccountHandler.verifyAccount(this.getDonorID(), oldPassword);
         if (verification) {
@@ -100,6 +100,37 @@ public class Donor extends DCAccount implements Comparable<Donor> {
                 System.out.println("ERROR: Unable to change password.");
                 System.out.println("Please verify that you have the file 'DonorAccounts.csv'");
             }
+        }
+    }
+    /**
+     * Write a donor account into the DonorAccounts.csv file
+     */
+    protected void addDonortoFile() {
+        try {
+            Writer DonorFile = new FileWriter("DonorAccounts.csv", true);
+            DonorFile.write(this.toCSVString());
+            DonorFile.close();
+        } catch (IOException e) {
+            System.out.println("Unable to write to file. Please try again.");
+        }
+    }
+    /**
+     * Sets a donor account's status to inactive.
+     * Data concerning the donations they have made are not deleted.
+     */
+    protected void deleteDonor() {
+        HashSet<Donor> accounts = DonorAccountHandler.getDonors();
+        try {
+            Writer DonorFile = new FileWriter("DonorAccounts.csv", false);
+            for (Donor i: accounts) {
+                if (i.compareTo(this) > 0)
+                    i.setStatus(false);
+                DonorFile.write(i.toCSVString());
+            }
+            DonorFile.close();
+        } catch (IOException e) {
+            System.out.println("ERROR: Unable to delete account from file");
+            System.out.println("Please very that you have the file 'DonorAccounts.csv'");
         }
     }
     /**

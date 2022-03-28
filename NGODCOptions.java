@@ -58,7 +58,7 @@ public class NGODCOptions {
      * @param user the account to delete.
      * @return true if the account was deleted, false otherwise
      */
-    public static boolean deleteAccount(NGO user) {
+    protected static boolean deleteAccount(NGO user) {
         System.out.println();
         System.out.println("Are you sure you would like to delete your account? This action cannot be undone.");
         System.out.println("[WARNING: Needed aids associated with your account will be deleted.]");
@@ -75,7 +75,7 @@ public class NGODCOptions {
         }
 
         if (choice == 1) {
-            NGOAccountHandler.deleteNGO(user);
+            user.deleteNGO();
             System.out.println("Account deleted.");
             return true;
         }
@@ -92,7 +92,7 @@ public class NGODCOptions {
      * 
      * @param user the user logged in who will be inputting the aids needed
      */
-    protected static void inputAids(NGO user) {
+    public static void inputAids(NGO user) {
         Scanner input = new Scanner(System.in);
         System.out.println();
         System.out.print    ("Please enter aids needed: ");
@@ -147,7 +147,7 @@ public class NGODCOptions {
      * 
      * @param list the list to be out put by the method
      */
-    protected static void printAidsList(ArrayList<String> list) {
+    public static void printAidsList(ArrayList<String> list) {
         System.out.println();
         if (list.size() != 0) {
             System.out.printf("%-8s %-15s %-20s %-9s %-4s %-9s\n", "Donor", "Phone", "Aids", "Quantity", "NGO",
@@ -170,7 +170,7 @@ public class NGODCOptions {
      * 
      * @param list the list to be printed out by the method
      */
-    protected static void printAidsNeeded(ArrayList<String> list) {
+    public static void printAidsNeeded(ArrayList<String> list) {
         System.out.println();
         if (list.size() != 0) {
             System.out.printf("%-20s %-9s %-4s %-9s\n", "Aids", "Quantity", "NGO", "Manpower");
