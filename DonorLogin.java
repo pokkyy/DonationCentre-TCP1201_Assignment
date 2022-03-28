@@ -33,6 +33,7 @@ public abstract class DonorLogin {
         System.out.println("----------------------[Donor login menu]-----------------------");
         System.out.println("1. Login to DC");
         System.out.println("2. Create an account at DC");
+        System.out.println("3. Reactive a Donor account");
         System.out.println("0. Exit");
         System.out.print  ("> ");
     }
@@ -58,6 +59,7 @@ public abstract class DonorLogin {
                         break;
                 case 2: registerDonor();
                         break;
+                case 3: reactiveDonor();
             }
         } while (choice != 0);
         System.out.println("Returning to DC menu.");
@@ -115,5 +117,24 @@ public abstract class DonorLogin {
         
         System.out.println("Account created successfully.");
         System.out.println("Please log in again.");
+    }
+    /**
+     * Allows the user to reactive an inactive donor account
+     */
+    public static void reactiveDonor() {
+        System.out.println();
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the DonorID: ");
+        String name = input.next();
+        System.out.print("Enter the password: ");
+        String password = input.next();
+
+        if (DonorAccountHandler.reactiveDonor(name, password)) {
+            System.out.println("Account reactivated successfully.");
+            System.out.println("You may log in again");
+        } else {
+            System.out.println("ERROR: " + name + " could not be reactivated.");
+            System.out.println("Please try again.");
+        }
     }
 }

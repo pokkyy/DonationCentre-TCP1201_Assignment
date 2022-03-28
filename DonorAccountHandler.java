@@ -137,4 +137,35 @@ public class DonorAccountHandler {
             System.out.println("Please very that you have the file 'DonorAccounts.csv'");
         }
     }
+    /**
+     * Sets an inactive account's status to active.
+     * 
+     * @param name the name of the account to be reactivated
+     * @param password the password of the account to be reactivated
+     * @return returns the status of the account. If it is reactivated then it returns true, else false.
+     */
+    public static boolean reactiveDonor (String name, String password) {
+        HashSet<Donor> accounts = getDonors();
+        boolean success = false;
+
+        for (Donor i: accounts) {
+            if (i.getDonorID().equals(name) && i.getStatus() == false)
+                if (i.getPassword().equals(password)) {
+                    i.setStatus(true);
+                    success = true;
+                }
+        }
+        if (success) {
+            try {
+                Writer DonorFile = new FileWriter("DonorAccounts.csv", false);
+                for (Donor i: accounts)
+                    DonorFile.write(i.toCSVString());
+                DonorFile.close();
+            } catch (IOException e) {
+                System.out.println("ERROR: Unable to save file");
+                System.out.println("Please very that you have the file 'NGOAccounts.csv'");
+            }
+        }
+        return success;
+    }
 }

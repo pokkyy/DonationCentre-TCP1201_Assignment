@@ -32,6 +32,7 @@ public abstract class NGOLogin {
         System.out.println("-----------------------[NGO login menu]------------------------");
         System.out.println("1. Login to DC");
         System.out.println("2. Create an account at DC");
+        System.out.println("3. Reactivate an account");
         System.out.println("0. Exit");
         System.out.print("> ");
     }
@@ -57,6 +58,7 @@ public abstract class NGOLogin {
                         break;
                 case 2: registerNGO();
                         break;
+                case 3: reactiveNGO();
             }
         } while (choice != 0);
         System.out.println("Returning to DC main menu");
@@ -112,5 +114,24 @@ public abstract class NGOLogin {
         
         System.out.println("Account created successfully.");
         System.out.println("Please log in again.");
+    }
+    /**
+     * Allows the user to reactive an inactive NGO account
+     */
+    public static void reactiveNGO() {
+        System.out.println();
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the name of the NGO: ");
+        String name = input.next();
+        System.out.print("Enter the password of the NGO: ");
+        String password = input.next();
+
+        if (NGOAccountHandler.reactiveNGO(name, password)) {
+            System.out.println("Account reactivated successfully.");
+            System.out.println("You may log in again");
+        } else {
+            System.out.println("ERROR: " + name + " could not be reactivated.");
+            System.out.println("Please try again.");
+        }
     }
 }

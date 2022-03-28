@@ -136,4 +136,35 @@ public class NGOAccountHandler {
             System.out.println("Please very that you have the file 'NGOAccounts.csv'");
         }
     }
+    /**
+     * Sets an inactive account's status to active.
+     * 
+     * @param name the name of the account to be reactivated
+     * @param password the password of the account to be reactivated
+     * @return returns the status of the account. If it is reactivated then it returns true, else false.
+     */
+    public static boolean reactiveNGO (String name, String password) {
+        HashSet<NGO> accounts = getNGOs();
+        boolean success = false;
+
+        for (NGO i: accounts) {
+            if (i.getNGOName().equals(name) && i.getStatus() == false)
+                if (i.getPassword().equals(password)) {
+                    i.setStatus(true);
+                    success = true;
+                }
+        }
+        if (success) {
+            try {
+                Writer NGOFile = new FileWriter("NGOAccounts.csv", false);
+                for (NGO i: accounts)
+                    NGOFile.write(i.toCSVString());
+                NGOFile.close();
+            } catch (IOException e) {
+                System.out.println("ERROR: Unable to save file");
+                System.out.println("Please very that you have the file 'NGOAccounts.csv'");
+            }
+        }
+        return success;
+    }
 }
