@@ -32,7 +32,7 @@ public abstract class NGODC {
     private static void printMenu() {
         int aidsReceivedCount = NGOAids.aidsReceivedCount(currentUser);
         System.out.println  ();
-        System.out.println  ("---------------------------------------------------------------");
+        System.out.println  ("--------------------------[NGO MENU]---------------------------");
         System.out.println  (currentUser.getNGOName() + "\t manpower: " + currentUser.getManpower());
         System.out.println  ("Aids received: " + aidsReceivedCount);
         System.out.println  ("---------------------------------------------------------------");
@@ -67,7 +67,6 @@ public abstract class NGODC {
                 case 4: NGODCOptions.changePassword(currentUser);
                         break;
                 case 5: NGODCOptions.changeManpower(currentUser);
-                        break;
             }
         } while (choice != 0);
         System.out.println("Returning to log in menu.");

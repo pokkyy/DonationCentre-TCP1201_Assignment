@@ -29,6 +29,7 @@ public abstract class NGOLogin {
      */
     private static void printMenu() {
         System.out.println();
+        System.out.println("[NGO login menu]");
         System.out.println("1. Login to DC");
         System.out.println("2. Create an account at DC");
         System.out.println("0. Exit");

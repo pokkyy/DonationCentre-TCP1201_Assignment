@@ -44,7 +44,7 @@ public abstract class DonorDC {
      */
     private static void printMenu() {
         System.out.println  ();
-        System.out.println  ("---------------------------------------------------------------");
+        System.out.println  ("--------------------------[DONOR MENU]-------------------------");
         System.out.println  (currentUser.getDonorID() + "\t Phone Number: " + currentUser.getPhoneNumber());
         System.out.println  ("Donations received by NGOs: " + aidsReceivedCount());
         System.out.println  ("---------------------------------------------------------------");
@@ -80,7 +80,6 @@ public abstract class DonorDC {
                 case 4: DonorDCOptions.changePassword(currentUser);
                         break;
                 case 5: DonorDCOptions.changephoneNumber(currentUser);
-                        break;
             }
         } while (choice != 0);
         System.out.println("Returning to log in menu.");

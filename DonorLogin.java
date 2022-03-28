@@ -30,6 +30,7 @@ public abstract class DonorLogin {
      */
     private static void printMenu() {
         System.out.println();
+        System.out.println("[Donor login menu]");
         System.out.println("1. Login to DC");
         System.out.println("2. Create an account at DC");
         System.out.println("0. Exit");
@@ -100,8 +101,10 @@ public abstract class DonorLogin {
             System.out.println();
             System.out.print("Enter Donor ID: ");
             String DonorID = input.next();
+            input.nextLine();
             System.out.print("Enter password: ");
             String DonorPassword = input.next();
+            input.nextLine();
             System.out.print("Input phone number: ");
             String phoneNumber = input.nextLine();
             System.out.println();
