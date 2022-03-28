@@ -164,6 +164,35 @@ public class NGOAids {
         return aidsList;
     }
     /**
+     * This remove's an NGO's aids needed data from the files.
+     * 
+     * @param account the account whose aids data is to be removed.
+     */
+    protected static void removeFromFile(NGO account) {
+        ArrayList<String> aidsNeededList = new ArrayList<>();
+        ArrayList<String> newAidsNeededList = new ArrayList<>();
+
+        aidsNeededList = getAidsList("aidsNeeded.csv");
+
+        for (String i : aidsNeededList)
+            if (i.contains(account.getNGOName()) == false)
+                newAidsNeededList.add(i);
+                
+        try {
+            Writer AidsNeededFile = new FileWriter("aidsNeeded.csv", false);
+            for (String i : newAidsNeededList) {
+                String[] items = i.split(" ");
+                String entry = items[0] + "," + items[1] + "," + items[2] + "," + items[3] + "\n";
+                AidsNeededFile.write(entry);
+            }
+            AidsNeededFile.close();
+
+        } catch (IOException e) {
+            System.out.println("ERROR: Unable to write to file.");
+            System.out.println("'Please try again.");
+        }
+    }
+    /**
      * Returns the aid, quantity, the NGOName, and the NGO manpower
      * 
      * @return a string of aid, quantity, the NGOName, and the NGO manpower in a suitable format for a CSV file

@@ -8,6 +8,7 @@
  */
 public abstract class DCAccount {
     private String password;
+    private boolean status;
     /**
      * Constructs a DCAccount and sets the password to null
      */
@@ -16,9 +17,11 @@ public abstract class DCAccount {
      * Constructs a DCAccount and sets the password to the specified content
      * 
      * @param password the password to set
+     * @param status sets the status of the account
      */
-    public DCAccount(String password) {
+    public DCAccount(String password, boolean status) {
         this.password = password;
+        this.status = status;
     }
     /**
      * Returns the password
@@ -27,6 +30,22 @@ public abstract class DCAccount {
      */
     public String getPassword() {
         return this.password;
+    }
+    /**
+     * Returns the status of the account
+     * 
+     * @return true if active, false otherwise
+     */
+    public boolean getStatus() {
+        return this.status;
+    }
+    /**
+     * Sets the status of the account
+     * 
+     * @param status the status of the account. Either true or false
+     */
+    public void setStatus(boolean status) {
+        this.status = status;
     }
     /**
      * Sets the password to the content of newPassword

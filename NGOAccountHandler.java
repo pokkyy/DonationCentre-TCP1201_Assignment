@@ -25,7 +25,7 @@ public class NGOAccountHandler {
      */
     public static boolean createNGO(String name, String password, int manpower) {
         HashSet<NGO> registeredUsers = NGOAccountHandler.getNGOs();
-        NGO newAccount = new NGO(name, password, manpower);
+        NGO newAccount = new NGO(name, password, manpower, true);
 
         for (NGO i: registeredUsers)
             if (i.getNGOName().equals(newAccount.getNGOName())) {
@@ -47,7 +47,11 @@ public class NGOAccountHandler {
         HashSet<NGO> NGOs = getNGOs();
         for (NGO i : NGOs)
             if (i.getNGOName().equals(name))
-                if (i.getPassword().equals(password))
+                if (i.getStatus() == false) {
+                    System.out.println("This account is inactive. Please try again");
+                    return false;
+                }
+                else if (i.getPassword().equals(password))
                     return true;
                 else {
                     System.out.println("Incorrect password. Please try again.");
@@ -71,7 +75,7 @@ public class NGOAccountHandler {
             for (int i = 0; i < list.size(); i++) {
                 String[] data = list.get(i).split(","); // store each data into a string array, split by comma
                 int manpower = Integer.valueOf(data[2]);
-                NGO account = new NGO(data[0], data[1], manpower);
+                NGO account = new NGO(data[0], data[1], manpower, Boolean.valueOf(data[3]));
                 NGOs.add(account);
             }
         } catch (IOException e) {
@@ -92,7 +96,7 @@ public class NGOAccountHandler {
         NGO currentUser = new NGO();
         for (NGO i: NGOs)
             if (name.equals(i.getNGOName())) {
-                currentUser = new NGO(i.getNGOName(), i.getPassword(), i.getManpower());
+                currentUser = new NGO(i.getNGOName(), i.getPassword(), i.getManpower(), i.getStatus());
                 return currentUser;
             }
         return null;
@@ -109,6 +113,27 @@ public class NGOAccountHandler {
             NGOFile.close();
         } catch (IOException e) {
             System.out.println("Unable to write to file. Please try again.");
+        }
+    }
+    /**
+     * Sets an NGO's account status to inactive and deletes the data of their aids needed from the files.
+     * 
+     * @param account the account to be deleted.
+     */
+    public static void deleteNGO(NGO account) {
+        HashSet<NGO> accounts = getNGOs();
+        try {
+            NGOAids.removeFromFile(account);
+            Writer NGOFile = new FileWriter("NGOAccounts.csv", false);
+            for (NGO i: accounts) {
+                if (i.getNGOName().equals(account.getNGOName()))
+                    i.setStatus(false);
+                NGOFile.write(i.toCSVString());
+            }
+            NGOFile.close();
+        } catch (IOException e) {
+            System.out.println("ERROR: Unable to delete account from file");
+            System.out.println("Please very that you have the file 'NGOAccounts.csv'");
         }
     }
 }

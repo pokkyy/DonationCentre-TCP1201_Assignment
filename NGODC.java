@@ -41,6 +41,7 @@ public abstract class NGODC {
         System.out.println  ("3. View list of aids needed");
         System.out.println  ("4. Change password");
         System.out.println  ("5. Change manpower");
+        System.out.println  ("6. Delete account");
         System.out.println  ("0. Log out");
         System.out.print    ("> ");
     }
@@ -67,6 +68,10 @@ public abstract class NGODC {
                 case 4: NGODCOptions.changePassword(currentUser);
                         break;
                 case 5: NGODCOptions.changeManpower(currentUser);
+                        break;
+                case 6: boolean logout = NGODCOptions.deleteAccount(currentUser);
+                        if (logout)
+                            choice = 0;
             }
         } while (choice != 0);
         System.out.println("Returning to log in menu.");

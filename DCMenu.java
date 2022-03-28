@@ -17,6 +17,7 @@ public abstract class DCMenu {
      */
     private static void printOptions() {
         System.out.println();
+        System.out.println("---------------------------[DC MENU]----------------------------");
         System.out.println("1. Log in as Donor");
         System.out.println("2. Log in as NGO");
         System.out.println("3. Sort donations at DC");

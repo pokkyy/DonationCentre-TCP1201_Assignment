@@ -52,6 +52,39 @@ public class NGODCOptions {
         System.out.println("Returning to main menu.");
     }
     /**
+     * This deletes the account and data of the current NGO logged in.
+     * The NGO's aids needed will be wiped from the file
+     * 
+     * @param user the account to delete.
+     * @return true if the account was deleted, false otherwise
+     */
+    public static boolean deleteAccount(NGO user) {
+        System.out.println();
+        System.out.println("Are you sure you would like to delete your account? This action cannot be undone.");
+        System.out.println("[WARNING: Needed aids associated with your account will be deleted.]");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        Scanner input = new Scanner(System.in);
+        int choice = 5;
+        try {
+            System.out.print("> ");
+            choice = input.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("ERROR: Invalid input");
+            System.out.println("Please try again.");
+        }
+
+        if (choice == 1) {
+            NGOAccountHandler.deleteNGO(user);
+            System.out.println("Account deleted.");
+            return true;
+        }
+        else {
+            System.out.println("Returning to main menu.");
+            return false;
+        }
+    }
+    /**
      * The user is able to input the aids that they require and the amount they need.
      *  The method automatically converts aids entered to a String with proper formatting and capitalisation.
      * If the user inputs an invalid number, they will be prompted to input a correct number before they are able to exit the method.

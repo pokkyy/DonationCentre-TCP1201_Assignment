@@ -25,7 +25,7 @@ public class DonorAccountHandler {
      */
     public static boolean createDonor(String donorID, String password, String phoneNumber) {
         HashSet<Donor> DonorProfile = getDonors();
-        Donor newAccount = new Donor(donorID, password, phoneNumber);
+        Donor newAccount = new Donor(donorID, password, phoneNumber, true);
 
         for (Donor i : DonorProfile)
             if (i.getDonorID().equals(newAccount.getDonorID())) {
@@ -49,7 +49,11 @@ public class DonorAccountHandler {
 
         for (Donor i : Donors)
             if (i.getDonorID().equals(donorID))
-                if (i.getPassword().equals(password))
+                if (i.getStatus() == false) {
+                    System.out.println("This account is inactive. Please try again");
+                    return false;
+                }
+                else if (i.getPassword().equals(password))
                     return true;
                 else {
                     System.out.println("Incorrect password. Please try again.");
@@ -72,7 +76,7 @@ public class DonorAccountHandler {
             List<String> list = Files.readAllLines(Paths.get("DonorAccounts.csv")); // reads all the lines from the file and puts in String list
             for (int i = 0; i < list.size(); i++) {
                 String[] data = list.get(i).split(","); // store each data into a string array, split by comma
-                Donor account = new Donor(data[0], data[2], data[1]);
+                Donor account = new Donor(data[0], data[2], data[1], Boolean.valueOf(data[3]));
                 Donors.add(account);
             }
         } catch (IOException e) {
@@ -93,7 +97,7 @@ public class DonorAccountHandler {
         Donor currentUser = new Donor();
         for (Donor i: Donors)
             if (donorID.equals(i.getDonorID())) {
-                currentUser = new Donor(i.getDonorID(), i.getPassword(), i.getPhoneNumber());
+                currentUser = new Donor(i.getDonorID(), i.getPassword(), i.getPhoneNumber(), i.getStatus());
                 return currentUser;
             }
         return null;
@@ -110,6 +114,27 @@ public class DonorAccountHandler {
             DonorFile.close();
         } catch (IOException e) {
             System.out.println("Unable to write to file. Please try again.");
+        }
+    }
+    /**
+     * Sets a donor account's status to inactive.
+     * Data concerning the donations they have made are not deleted.
+     * 
+     * @param account the account to be deleted.
+     */
+    public static void deleteDonor(Donor account) {
+        HashSet<Donor> accounts = getDonors();
+        try {
+            Writer DonorFile = new FileWriter("DonorAccounts.csv", false);
+            for (Donor i: accounts) {
+                if (i.getDonorID().equals(account.getDonorID()))
+                    i.setStatus(false);
+                DonorFile.write(i.toCSVString());
+            }
+            DonorFile.close();
+        } catch (IOException e) {
+            System.out.println("ERROR: Unable to delete account from file");
+            System.out.println("Please very that you have the file 'DonorAccounts.csv'");
         }
     }
 }

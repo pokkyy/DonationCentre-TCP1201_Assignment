@@ -53,6 +53,7 @@ public abstract class DonorDC {
         System.out.println  ("3. View list of aids donated");
         System.out.println  ("4. Change password");
         System.out.println  ("5. Change phone number");
+        System.out.println  ("6. Delete account");
         System.out.println  ("0. Log out");
         System.out.print    ("> ");
     }
@@ -80,6 +81,10 @@ public abstract class DonorDC {
                 case 4: DonorDCOptions.changePassword(currentUser);
                         break;
                 case 5: DonorDCOptions.changephoneNumber(currentUser);
+                        break;
+                case 6: boolean logout = DonorDCOptions.deleteAccount(currentUser);
+                        if (logout)
+                            choice = 0;
             }
         } while (choice != 0);
         System.out.println("Returning to log in menu.");

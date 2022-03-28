@@ -22,9 +22,10 @@ public class NGO extends DCAccount implements Comparable<NGO>{
      * @param NGOName the content of NGOName
      * @param password the content of password
      * @param manpower the value of manpower
+     * @param status the status of the NGO account
      */
-    public NGO(String NGOName, String password, int manpower) {
-        super(password);
+    public NGO(String NGOName, String password, int manpower, boolean status) {
+        super(password, status);
         this.NGOName = NGOName;
         this.manpower = manpower;
     }
@@ -123,7 +124,7 @@ public class NGO extends DCAccount implements Comparable<NGO>{
      * @return string of NGOName, password, and manpower in CSV format
      */
     public String toCSVString() {
-        return this.NGOName + "," + this.getPassword() + "," + this.manpower + "\n";
+        return this.NGOName + "," + this.getPassword() + "," + this.manpower + "," + this.getStatus() + "\n";
     }
     /**
      * Returns the content of NGOName and manpower in an appropriate string format

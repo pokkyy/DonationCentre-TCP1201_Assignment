@@ -55,6 +55,39 @@ public class DonorDCOptions {
         System.out.println("Returning to main menu.");
     }
     /**
+     * This deletes the account and data of the current donor logged in.
+     * The donor account will be wiped from the file and all of their related aids will also be deleted.
+     * 
+     * @param user the account to delete.
+     * @return true if the account was deleted, false otherwise
+     */
+    public static boolean deleteAccount(Donor user) {
+        System.out.println();
+        System.out.println("Are you sure you would like to delete your account? This action cannot be undone.");
+        System.out.println("[WARNING: Aids donated will NOT be deleted.]");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+        Scanner input = new Scanner(System.in);
+        int choice = 5;
+        try {
+            System.out.print("> ");
+            choice = input.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("ERROR: Invalid input");
+            System.out.println("Please try again.");
+        }
+
+        if (choice == 1) {
+            DonorAccountHandler.deleteDonor(user);
+            System.out.println("Account deleted.");
+            return true;
+        }
+        else {
+            System.out.println("Returning to main menu.");
+            return false;
+        }
+    }
+    /**
      * The user is able to input the aids that they wish to donate.
      * The method automatically converts aids entered to a String with proper formatting and capitalisation.
      * If the user inputs an invalid number, they will be prompted to input a correct number before they are able to exit the method.

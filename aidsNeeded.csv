@@ -1,15 +1,12 @@
 Clothes,3,N1,10
-Clothing,3,N15,12
+Fabric,3,N1,10
 Rice,3,N1,10
 Shoes,2,N1,10
 Shoes,3,N1,10
 Shoes,3,N7,15
 Toiletries,3,N1,10
 Utensil,6,N1,10
-Water,3,N4,40
-Water,3,N5,20
 Water,3,N7,15
 Water,4,N1,10
 Water,5,N1,10
-Water,7,N5,20
-Fabric,3,N1,10
+Bags,3,N10,10

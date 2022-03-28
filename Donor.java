@@ -23,9 +23,10 @@ public class Donor extends DCAccount implements Comparable<Donor> {
      * @param donorID the specified donorID for Donor
      * @param password the specified password for Donor
      * @param phoneNumber the specified phone number for Donor
+     * @param status the status of the donor account
      */
-    public Donor(String donorID, String password, String phoneNumber) {
-        super(password);
+    public Donor(String donorID, String password, String phoneNumber, boolean status) {
+        super(password, status);
         this.donorID = donorID;
         this.phoneNumber = phoneNumber;
     }
@@ -125,7 +126,7 @@ public class Donor extends DCAccount implements Comparable<Donor> {
      */
     @Override
     public String toCSVString() {
-        return this.donorID + "," + this.phoneNumber + "," + this.getPassword() + "\n";
+        return this.donorID + "," + this.phoneNumber + "," + this.getPassword() + "," + this.getStatus() + "\n";
     }
     /**
      * Returns a string of a donor object in string format
