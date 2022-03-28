@@ -26,7 +26,7 @@ public abstract class DCMenu {
     }
     /**
      * A user will be shown a list of options they can choose from and asked for their input of choice.
-     * Based on their input, they will be taken to the option of their choice.\
+     * Based on their input, they will be taken to the option of their choice.
      */
     public static void DCMenuOptions() {
         Scanner scanner = new Scanner(System.in);

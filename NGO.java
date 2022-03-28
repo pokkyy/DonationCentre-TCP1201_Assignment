@@ -4,7 +4,7 @@ import java.io.Writer;
 import java.util.HashSet;
 
 /**
- * This is the NGO class It contains methods to create an NGO and retrieve data for the NGO's name and manpower
+ * This is the NGO class It contains methods to create an NGO and retrieve and manipulate data related to an NGO
  * 
  * @author Anis Hazirah Mohamad Sabry
  * @version 17
@@ -12,13 +12,13 @@ import java.util.HashSet;
 public class NGO extends DCAccount implements Comparable<NGO>{
     private String NGOName;
     private int manpower;
-
     /**
      * Constructs an NGO with NGOName set to null and manpower set to zero (0).
      */
     public NGO() {}
     /**
      * Constructs an NGO with the specificed NGOName, password, and manpower
+     * 
      * @param NGOName the content of NGOName
      * @param password the content of password
      * @param manpower the value of manpower
@@ -58,20 +58,19 @@ public class NGO extends DCAccount implements Comparable<NGO>{
      * The user is required to verify the account with the old password before they are able to change their password
      * The new password is saved into the NGOAccounts.csv file
      * 
-     * @param user the current user who wants to change password
      * @param oldPassword the old password of the user who wants to change password
      * @param newPassword the new password for the user
      */
-    public void changePassword(NGO user, String oldPassword, String newPassword) {        
+    public void changePassword(String oldPassword, String newPassword) {        
         HashSet<NGO> NGOs = NGOAccountHandler.getNGOs();
-        boolean verification = NGOAccountHandler.verifyAccount(user.getNGOName(), oldPassword);
+        boolean verification = NGOAccountHandler.verifyAccount(this.getNGOName(), oldPassword);
         if (verification) {
             try {
-                user.setPassword(newPassword);
+                this.setPassword(newPassword);
                 Writer NGOFile = new FileWriter("NGOAccounts.csv", false);
                 for (NGO i: NGOs) {
-                    if (i.compareTo(user) > 0)
-                        i = user;
+                    if (i.compareTo(this) > 0)
+                        i = this;
                     NGOFile.write(i.toCSVString());
                 }
                 NGOFile.close();
@@ -86,18 +85,16 @@ public class NGO extends DCAccount implements Comparable<NGO>{
     /**
      * Changes the manpower of an NGO. The new manpower is written into the NGOAccounts.csv file
      * 
-     * @param user the current user who wishes to change their manpower
      * @param newManpower the new manpower for the user
      */
-    public static void changeManpower(NGO user, int newManpower) {
+    public void changeManpower(int newManpower) {
         HashSet<NGO> NGOs = NGOAccountHandler.getNGOs();
         try {
-            user.setManpower(newManpower);
-            System.out.println(user);
+            this.setManpower(newManpower);
             Writer NGOFile = new FileWriter("NGOAccounts.csv", false);
             for (NGO i : NGOs) {
-                if (i.compareTo(user) > 0)
-                    i = user;
+                if (i.compareTo(this) > 0)
+                    i = this;
                 NGOFile.write(i.toCSVString());
             }
             NGOFile.close();

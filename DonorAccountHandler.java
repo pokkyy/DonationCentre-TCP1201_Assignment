@@ -28,7 +28,7 @@ public class DonorAccountHandler {
         Donor newAccount = new Donor(donorID, password, phoneNumber, true);
 
         for (Donor i : DonorProfile)
-            if (i.getDonorID().equals(newAccount.getDonorID())) {
+            if (i.compareTo(newAccount) > 0) {
                 System.out.println(donorID + " already exists. Please try again.");
                 return false;
             }
@@ -64,7 +64,7 @@ public class DonorAccountHandler {
         return false;
     }
     /**
-     * Returns an HashSet containing all the Donor accounts found within the file.
+     * Returns a HashSet containing all the Donor accounts found within the file.
      * The Donor consists of the donorID, the password, and donor's phone number
      * 
      * @return HashSet of all the donor accounts found within the file
@@ -127,7 +127,7 @@ public class DonorAccountHandler {
         try {
             Writer DonorFile = new FileWriter("DonorAccounts.csv", false);
             for (Donor i: accounts) {
-                if (i.getDonorID().equals(account.getDonorID()))
+                if (i.compareTo(account) > 0)
                     i.setStatus(false);
                 DonorFile.write(i.toCSVString());
             }

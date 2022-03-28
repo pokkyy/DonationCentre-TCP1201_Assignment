@@ -22,7 +22,7 @@ public class NGODCOptions {
         System.out.print("Enter new password: ");
         String newPassword = input.nextLine();
 
-        user.changePassword(user, oldPassword, newPassword);
+        user.changePassword(oldPassword, newPassword);
 
         System.out.println();
         System.out.println("Returning to main menu.");
@@ -39,7 +39,7 @@ public class NGODCOptions {
         System.out.print("Enter new manpower: ");
         try {
             int manpower = input.nextInt();
-            NGO.changeManpower(user, manpower);
+            user.changeManpower(manpower);
             System.out.println();
             System.out.println("Manpower changed successfully.");
             System.out.println("New manpower = " + user.getManpower());
@@ -108,7 +108,7 @@ public class NGODCOptions {
                     quantity = input.nextInt();
                 } while (quantity < 0);
                 NGOAids aidsNeeded = new NGOAids(aids, quantity, user);
-                NGOAids.writeAidstoFile(aidsNeeded);
+                aidsNeeded.writeAidstoFile();
         } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please try again.");
         }

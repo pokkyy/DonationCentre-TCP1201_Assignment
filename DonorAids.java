@@ -36,12 +36,11 @@ public class DonorAids {
      * Writes the DonorAids to the aidsDonated.csv files.
      * If the file is unable to be written to, the user will receive an error message.
      * 
-     * @param input the specified DonorAids to be written into the file
      */
-    public static void writeAidstoFile(DonorAids input) {
+    public void writeAidstoFile() {
         try {
             Writer aidsFile = new FileWriter("aidsDonated.csv", true);
-            aidsFile.write(input.toCSVString());
+            aidsFile.write(this.toCSVString());
             aidsFile.close();
             System.out.println("Input successfully added.");
         } catch (IOException e) {

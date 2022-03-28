@@ -41,6 +41,7 @@ public abstract class DonorDC {
     }
     /**
      * This method is used in conjunction with the DonorDCMenu. It prints out the list of menu options for the user
+     * The donor's DonorID, phone number, and the amount of donations they've made that have been recevied by NGOs will be displayed.
      */
     private static void printMenu() {
         System.out.println  ();

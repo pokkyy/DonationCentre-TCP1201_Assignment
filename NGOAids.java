@@ -48,13 +48,11 @@ public class NGOAids {
     /**
      * Writes the NGOAids to the aidsNeeded.csv files.
      * If the file is unable to be written to, the user will receive an error message.
-     * 
-     * @param input the specified NGOAids to be written into the file
      */
-    public static void writeAidstoFile(NGOAids input) {
+    public void writeAidstoFile() {
         try {
             Writer aidsFile = new FileWriter("aidsNeeded.csv", true);
-            aidsFile.write(input.toCSVString());
+            aidsFile.write(this.toCSVString());
             aidsFile.close();
             System.out.println("Input successfully added.");
         } catch (IOException e) {
@@ -92,7 +90,7 @@ public class NGOAids {
         
         currentNGO = NGOAccountHandler.getUser(NGOname);
         NGOAids currentAids = new NGOAids(input[2], Integer.valueOf(input[3]), currentNGO);
-        DonorNGO currentDonor = new DonorNGO(input[0], input[1]);
+        NGODonor currentDonor = new NGODonor(input[0], input[1]);
 
         return currentDonor.toString() + " " + currentAids.toString();
     }

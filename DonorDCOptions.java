@@ -22,14 +22,15 @@ public class DonorDCOptions {
         System.out.print("Enter new password: ");
         String newPassword = input.nextLine();
 
-        user.changePassword(user, oldPassword, newPassword);
+        user.changePassword(oldPassword, newPassword);
 
         System.out.println();
         System.out.println("Returning to main menu.");
     }
     /**
-     * This changes the manpower of the current user logged in.
-     * The user will be asked to input their desired manpower. Should the number be invalid, they will receive an error message.
+     * This changes the phone number of the current user logged in.
+     * The user will be asked to input their new phone number. Should the number be invalid, they will receive an error message.
+     * The minimum number of digits in a phone number is 8 while the maximum number of digits in a phone number is 12
      * 
      * @param user the user logged in who's phone number will be changed
      */
@@ -43,9 +44,9 @@ public class DonorDCOptions {
             do {
                 System.out.print("Please enter a valid phone number: ");
                 phoneNumber = input.nextLine();
-            } while (phoneNumber.length() > 12);
+            } while (phoneNumber.length() < 8 || phoneNumber.length() > 12);
         }
-        Donor.changePhoneNumber(user, phoneNumber);
+        user.changePhoneNumber(phoneNumber);
         System.out.println();
         System.out.println("Phone number changed successfully.");
         System.out.println("New phone number: " + user.getPhoneNumber());
@@ -55,8 +56,7 @@ public class DonorDCOptions {
         System.out.println("Returning to main menu.");
     }
     /**
-     * This deletes the account and data of the current donor logged in.
-     * The donor account will be wiped from the file and all of their related aids will also be deleted.
+     * This sets an account to inactive and wipes the data of the current donor logged in.
      * 
      * @param user the account to delete.
      * @return true if the account was deleted, false otherwise
@@ -111,7 +111,7 @@ public class DonorDCOptions {
                     quantity = input.nextInt();
                 } while (quantity < 0);
                 DonorAids aidsDonating = new DonorAids(user, aids, quantity);
-                DonorAids.writeAidstoFile(aidsDonating);
+                aidsDonating.writeAidstoFile();
         } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please try again.");
         }

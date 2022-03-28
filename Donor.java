@@ -4,7 +4,7 @@ import java.io.Writer;
 import java.util.HashSet;
 
 /**
- * This is the class for donor.
+ * This is the class for donor accounts at the DC.
  * 
  * @author Anis Hazirah binti Mohamad Sabry
  * @version 17
@@ -12,7 +12,6 @@ import java.util.HashSet;
 public class Donor extends DCAccount implements Comparable<Donor> {
     private String donorID;
     private String phoneNumber;
-
     /**
      * Constructs a donor object with the content set to null
      */
@@ -57,18 +56,16 @@ public class Donor extends DCAccount implements Comparable<Donor> {
     /**
      * Changes the Donor's phone number to the specified content
      * 
-     * @param user the user who wishes to change their phone number
      * @param newPhoneNumber the new phone number for Donor
      */
-    public static void changePhoneNumber(Donor user, String newPhoneNumber) {
+    public void changePhoneNumber(String newPhoneNumber) {
         HashSet<Donor> Donors = DonorAccountHandler.getDonors();
         try { 
-            user.setPhoneNumber(newPhoneNumber);
-            System.out.println(user);
+            this.setPhoneNumber(newPhoneNumber);
             Writer DonorFile = new FileWriter("DonorAccounts.csv", false);
             for (Donor i : Donors) {
-                if (i.compareTo(user) > 0)
-                    i = user;
+                if (i.compareTo(this) > 0)
+                    i = this;
                 DonorFile.write(i.toCSVString());
             }
             DonorFile.close();
@@ -82,24 +79,22 @@ public class Donor extends DCAccount implements Comparable<Donor> {
      * The user is required to verify their account before they are able to change their password.
      * The new password is then saved into the file.
      * 
-     * @param user the user who wants to change their password
      * @param oldPassword the old password of the user who wants to change their password
      * @param newPassword the new password for the user
      */
-    public void changePassword(Donor user, String oldPassword, String newPassword) {
+    public void changePassword(String oldPassword, String newPassword) {
         HashSet<Donor> Donors = DonorAccountHandler.getDonors();
-        boolean verification = DonorAccountHandler.verifyAccount(user.getDonorID(), oldPassword);
+        boolean verification = DonorAccountHandler.verifyAccount(this.getDonorID(), oldPassword);
         if (verification) {
             try {
-                user.setPassword(newPassword);
+                this.setPassword(newPassword);
                 Writer DonorFile = new FileWriter("DonorAccounts.csv", false);
                 for (Donor i: Donors) {
-                    if (i.compareTo(user) > 0)
-                        i = user;
+                    if (i.compareTo(this) > 0)
+                        i = this;
                     DonorFile.write(i.toCSVString());
                 }
                 DonorFile.close();
-
                 System.out.println("Password changed successfully.");
             } catch (IOException e) {
                 System.out.println("ERROR: Unable to change password.");

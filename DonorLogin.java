@@ -9,10 +9,6 @@ import java.util.Scanner;
  */
 public abstract class DonorLogin {
     /**
-     * Constructs an DonorLogin object with the contents set to null
-     */
-    public DonorLogin() {}
-    /**
      * Prints a welcome message to the user.
      * After priting the welcome message, the user is taken to the login menu.
      */
@@ -41,6 +37,7 @@ public abstract class DonorLogin {
      * Perfoms an action based on the menu option the user chooses.
      * If the user chooses 1, they are taken to the login for Donor.
      * If the user chooses 2, they are able to register a new Donor account.
+     * If the user chooses 3, they are able to reactivate an inactive Donor account.
      * If the user chooses 0, they are given an exit message before the program finishes.
      */
     public static void loginMenu() {

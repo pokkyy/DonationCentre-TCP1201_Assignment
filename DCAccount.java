@@ -1,7 +1,7 @@
 /**
  * Abstract class to be used with NGO and Donor. This intialises key components needed to manipulate the data and adds an additional 
  * data field for password.
- * The password is used to log into the accounts registered at a DC
+ * The password is used to log into the accounts registered at a DC. The status indicates whether it is an active account or an inactive account.
  * 
  * @author Anis Hazirah binti Mohamad Sabry
  * @version 17
@@ -10,11 +10,11 @@ public abstract class DCAccount {
     private String password;
     private boolean status;
     /**
-     * Constructs a DCAccount and sets the password to null
+     * Constructs a DCAccount and sets the password and status to null
      */
     public DCAccount(){}
     /**
-     * Constructs a DCAccount and sets the password to the specified content
+     * Constructs a DCAccount and sets the password and status to the specified content.
      * 
      * @param password the password to set
      * @param status sets the status of the account
@@ -26,7 +26,7 @@ public abstract class DCAccount {
     /**
      * Returns the password
      * 
-     * @return returns the content password
+     * @return returns the contents of password
      */
     public String getPassword() {
         return this.password;
