@@ -51,7 +51,8 @@ public class NGOAccountHandler {
         for (NGO i : NGOs)
             if (i.getNGOName().equals(name))
                 if (i.getStatus() == false) {
-                    System.out.println("This account is inactive. Please try again");
+                    System.out.println("This account is inactive.");
+                    System.out.println(" Please log in with a different account");
                     return false;
                 }
                 else if (i.getPassword().equals(password))
