@@ -170,14 +170,14 @@ public abstract class DonorDC {
             }
             switch (choice) {
                 case 1: aidsList = DonorAids.getAidsList(filename);
-                        DonorDCOptions.printAidsNeeded(aidsList);
+                        DonorDCOptions.printAidsDonated(aidsList);
                         break;
                 case 2: aidsList = DonorAids.getFilteredAidsList(currentUser, filename);
-                        DonorDCOptions.printAidsNeeded(aidsList);
+                        DonorDCOptions.printAidsDonated(aidsList);
                         break;
                 case 3: user = DonorDCOptions.DonorIDFilter();
                         aidsList = DonorAids.getFilteredAidsList(user, filename);
-                        DonorDCOptions.printAidsNeeded(aidsList);
+                        DonorDCOptions.printAidsDonated(aidsList);
                         break;
             }
         } while (choice != 0);

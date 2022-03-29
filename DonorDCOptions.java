@@ -8,6 +8,10 @@ import java.util.Scanner;
  */
 public class DonorDCOptions {
     /**
+     * No argument constructor for DonorDCOptions.
+     */
+    public DonorDCOptions() {}
+    /**
      * This changes the password of the current user logged in.
      * The user will first be asked to input their current password, and then the new password of their choice.
      * The purpose of asking the user for their current password is to verify the user beforehand and add another layer of protection to their data.
@@ -169,7 +173,7 @@ public class DonorDCOptions {
      * 
      * @param list the list to be printed out by the method
      */
-    public static void printAidsNeeded(ArrayList<String> list) {
+    public static void printAidsDonated(ArrayList<String> list) {
         System.out.println();
         if (list.size() != 0) {
             System.out.printf("%-8s %-15s %-20s %-9s\n", "Donor", "Phone", "Aids", "Quantity");

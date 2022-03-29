@@ -15,6 +15,10 @@ import java.util.List;
  */
 public class NGOAccountHandler {
     /**
+     * No argument constructor for NGOAccountHandler
+     */
+    public NGOAccountHandler() {}
+    /**
      * Returns a true or false if an NGO exists within the file based on their NGOName.
      * If an NGO does not exist, a new account is created
      * 

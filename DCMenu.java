@@ -5,13 +5,18 @@ import java.util.Scanner;
  * The user is able to choose between 4 options- logging in as a donor, logging in as an NGO, sorting the donations at DC, or exiting the program.
  * 
  * Requires the following files to be able to function properly:
- * DCAccount.java, Donor.java, DonorAids.java, DonorDC.java, DonorLogin.java, aidsList.csv, aidsDonated.csv donorAccounts.csv
- * NGOLogin.java, NGODC.java, NGO.java, DonorNGO.java, NGOAids.java, DonorNGO.java, aidsNeeded.csv
+ * DCAccount.java, Donor.java, DonorAids.java, DonorDC.java, DonorLogin.java, aidsList.csv, aidsDonated.csv, donorAccounts.csv,
+ * NGOLogin.java, NGODC.java, NGO.java, DonorNGO.java, NGOAids.java, DonorNGO.java, aidsNeeded.csv,
+ * Aids.java, AidsNeeded.java, aidsDonated.java, DC.java
  * 
  * @author Anis Hazirah binti Mohamad Sabry
  * @version 17
  */
 public abstract class DCMenu {
+    /**
+     * No argument constructor for the DCMenu class.
+     */
+    public DCMenu() {}
     /**
      * This method prints out all the avaliable options the user may choose from.
      */

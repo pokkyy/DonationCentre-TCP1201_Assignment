@@ -9,6 +9,10 @@ import java.util.Scanner;
  */
 public abstract class DonorLogin {
     /**
+     * No argument constructor for DonorLogin
+     */
+    public DonorLogin () {}
+    /**
      * Prints a welcome message to the user.
      * After priting the welcome message, the user is taken to the login menu.
      */

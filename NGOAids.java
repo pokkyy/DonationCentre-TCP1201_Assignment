@@ -162,7 +162,7 @@ public class NGOAids {
         return aidsList;
     }
     /**
-     * This remove's an NGO's aids needed data from the files.
+     * This removes an NGO's aids needed data from the files.
      * 
      * @param account the account whose aids data is to be removed.
      */

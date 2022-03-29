@@ -12,6 +12,10 @@ import java.util.Scanner;
 public abstract class NGODC {
     private static NGO currentUser = new NGO();
     /**
+     * No argument constructor for NGODC
+     */
+    public NGODC() {}
+    /**
      * This is the welcome method that will greet the user once they have successfully logged in to the program.
      * The user's NGOName and NGO's manpower is displayed.
      * 

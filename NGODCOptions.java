@@ -8,6 +8,10 @@ import java.util.Scanner;
  */
 public class NGODCOptions {
     /**
+     * No argument constructor for NGODCOptions
+     */
+    public NGODCOptions() {}
+    /**
      * This changes the password of the current user logged in.
      * The user will first be asked to input their current password, and then the new password of their choice.
      * The purpose of asking the user for their current password is to verify the user beforehand and add another layer of protection to their data.

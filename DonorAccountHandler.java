@@ -15,6 +15,10 @@ import java.util.List;
  */
 public class DonorAccountHandler {
     /**
+     * No argument constructor for DonorAccountHandler.
+     */
+    public DonorAccountHandler() {}
+    /**
      * Returns a true or false if a donor account exists within the file based on their donorID.
      * If a donor account does not exist, a new account is created.
      * 
