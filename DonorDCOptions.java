@@ -3,8 +3,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * This is a class that contains all the methods to be used within the DonorDC
- * class
+ * This is a class that contains all the methods to be used within the DonorDC class.
  */
 public class DonorDCOptions {
     /**
@@ -16,7 +15,7 @@ public class DonorDCOptions {
      * The user will first be asked to input their current password, and then the new password of their choice.
      * The purpose of asking the user for their current password is to verify the user beforehand and add another layer of protection to their data.
      * 
-     * @param user the user logged in who's password will be changed
+     * @param user the user logged in who's password will be changed.
      */
     protected static void changePassword(Donor user) {
         System.out.println();
@@ -34,16 +33,16 @@ public class DonorDCOptions {
     /**
      * This changes the phone number of the current user logged in.
      * The user will be asked to input their new phone number. Should the number be invalid, they will receive an error message.
-     * The minimum number of digits in a phone number is 8 while the maximum number of digits in a phone number is 12
+     * The minimum number of digits in a phone number is 8 while the maximum number of digits in a phone number is 12.
      * 
-     * @param user the user logged in who's phone number will be changed
+     * @param user the user logged in who's phone number will be changed.
      */
     protected static void changephoneNumber(Donor user) {
         System.out.println();
         Scanner input = new Scanner(System.in);
         System.out.print("Enter new phone number: ");
         String phoneNumber = input.nextLine();
-        if (phoneNumber.length() > 12) {    // msian phone numbers cant be more than 12 characters long
+        if (phoneNumber.length() > 12) {
             System.out.println("ERROR: Phone number is too long.");
             do {
                 System.out.print("Please enter a valid phone number: ");
@@ -63,7 +62,7 @@ public class DonorDCOptions {
      * This sets an account to inactive and wipes the data of the current donor logged in.
      * 
      * @param user the account to delete.
-     * @return true if the account was deleted, false otherwise
+     * @return true if the account was deleted, false otherwise.
      */
     protected static boolean deleteAccount(Donor user) {
         System.out.println();
@@ -97,7 +96,7 @@ public class DonorDCOptions {
      * If the user inputs an invalid number, they will be prompted to input a correct number before they are able to exit the method.
      * The user's request for aids will then be written in a file of all the aids needed.
      * 
-     *  @param user the user logged in who will be donating the aids
+     *  @param user the user logged in who will be donating the aids.
      */
     public static void inputAids(Donor user) {
         Scanner input = new Scanner(System.in);
@@ -147,9 +146,9 @@ public class DonorDCOptions {
         return DonorFilter;
     }
     /**
-     * This will print the aid's list consisting a donor, the aids donated, and the NGO receiving them
+     * This will print the aid's list consisting a donor, the aids donated, and the NGOs receiving them.
      * 
-     * @param list the list to be out put by the method
+     * @param list the list to be out put by the method.
      */
     public static void printAidsList(ArrayList<String> list) {
         System.out.println();
@@ -169,9 +168,9 @@ public class DonorDCOptions {
             System.out.println("No donations were found.");
     }
     /**
-     * This will print the list of all the aids donated by a Donor
+     * This will print the list of all the aids donated by a Donor.
      * 
-     * @param list the list to be printed out by the method
+     * @param list the list to be printed out by the method.
      */
     public static void printAidsDonated(ArrayList<String> list) {
         System.out.println();

@@ -2,15 +2,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *  This is the NGOLogin class.
- *  It is a specialised login screen and login menu for NGO users.
+ *  This is the NGOLogin class. It is a specialised login screen and login menu for NGO users.
  * 
  * @author Anis Hazirah Mohamad Sabry
  * @version 17
  */
 public abstract class NGOLogin {
     /**
-     * Constructs an NGOLogin object with the contents set to null
+     * Constructs an NGOLogin object with the contents set to null.
      */
     public NGOLogin() {}
     /**
@@ -64,8 +63,7 @@ public abstract class NGOLogin {
         System.out.println("Returning to DC main menu");
     }
     /**
-     * This is the login method for the NGO.
-     * Users will enter their NGO name and NGO password. The name and password are verified before they are taken to the main menu.
+     * This is the login method for the NGO. Users will enter their NGO name and NGO password. The name and password are verified before they are taken to the main menu.
      * If either NGO name or NGO password is incorrect, the method will continue to ask the user for input until the correct one is received.
      */
     private static void loginNGO() {
@@ -89,8 +87,7 @@ public abstract class NGOLogin {
         NGODC.welcomeUser(user);
     }
     /**
-     * Registers a new NGO account into the file.
-     * A user will input their desired NGO name, NGO password, and the manpower.
+     * Registers a new NGO account into the file. A user will input their desired NGO name, NGO password, and the manpower.
      * If an account is already registered, the method will continue to ask the user for input until it has received the correct input.
      */
     private static void registerNGO() {
@@ -116,7 +113,7 @@ public abstract class NGOLogin {
         System.out.println("Please log in again.");
     }
     /**
-     * Allows the user to reactive an inactive NGO account
+     * Allows the user to reactive an inactive NGO account.
      */
     private static void reactiveNGO() {
         System.out.println();

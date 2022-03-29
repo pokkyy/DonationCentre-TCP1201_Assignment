@@ -12,18 +12,17 @@ import java.util.Scanner;
 public abstract class NGODC {
     private static NGO currentUser = new NGO();
     /**
-     * No argument constructor for NGODC
+     * No argument constructor for NGODC.
      */
     public NGODC() {}
     /**
      * This is the welcome method that will greet the user once they have successfully logged in to the program.
      * The user's NGOName and NGO's manpower is displayed.
      * 
-     * @param user retrieves the current user information from the log in menu
+     * @param user retrieves the current user information from the log in menu.
      */
     public static void welcomeUser(NGO user) {
         currentUser = user;
-        int aidsReceivedCount = NGOAids.aidsReceivedCount(currentUser);
         System.out.println();
         System.out.println("---------------------------------------------------------------");
         System.out.println("Welcome, " + currentUser.getNGOName() + "!");
@@ -31,7 +30,7 @@ public abstract class NGODC {
         NGODCMenu();
     }
     /**
-     * This method is used in conjunction with the NGODCMenu. It prints out the list of menu options for the user
+     * This method is used in conjunction with the NGODCMenu. It prints out the list of menu options for the user.
      */
     private static void printMenu() {
         int aidsReceivedCount = NGOAids.aidsReceivedCount(currentUser);
@@ -82,7 +81,7 @@ public abstract class NGODC {
     }
     /**
      * This method prints a list of options the user will be able to do concerning aids.
-     * It is to be used in conjunction with the viewAidsOptions method
+     * It is to be used in conjunction with the viewAidsOptions method.
      */
     private static void printViewAidsMenu() {
         System.out.println  ();
@@ -128,7 +127,7 @@ public abstract class NGODC {
     }
     /**
      * This method prints a list of options the user will be able to do concerning aids.
-     * It is to be used in conjunction with the viewAidsOptions method
+     * It is to be used in conjunction with the viewAidsOptions method.
      */
     private static void printAidsNeededMenu() {
         System.out.println  ();

@@ -97,8 +97,8 @@ public class NGOAids {
     /**
      * Retrieves every entry from a file containing all of the aids received/needed by all the NGOs.
      * 
-     * @param filename the specified filename the method will retrieve data from
-     * @return an ArrayList containing of all the aids received/needed by NGOs
+     * @param filename the specified filename the method will retrieve data from.
+     * @return an ArrayList containing of all the aids received/needed by NGOs.
      */
     public static ArrayList<String> getAidsList(String filename) {
         ArrayList<String> aidsList = new ArrayList<>();
@@ -125,11 +125,11 @@ public class NGOAids {
         return aidsList;
     }
     /**
-     * Retrieves all the aids received or needed by a specified NGO from files containing the requested information
+     * Retrieves all the aids received or needed by a specified NGO from files containing the requested information.
      * 
-     * @param NGOFilter user inputs the specific NGO who's aids they wish to view
-     * @param filename the name of the file the method will read from
-     * @return an ArrayList of aids received/needed by the specified NGO
+     * @param NGOFilter user inputs the specific NGO who's aids they wish to view.
+     * @param filename the name of the file the method will read from.
+     * @return an ArrayList of aids received/needed by the specified NGO.
      */
     public static ArrayList<String> getFilteredAidsList(NGO NGOFilter, String filename) {
         ArrayList<String> aidsList = new ArrayList<>();
@@ -191,17 +191,17 @@ public class NGOAids {
         }
     }
     /**
-     * Returns the aid, quantity, the NGOName, and the NGO manpower
+     * Returns the aid, quantity, the NGOName, and the NGO manpower.
      * 
-     * @return a string of aid, quantity, the NGOName, and the NGO manpower in a suitable format for a CSV file
+     * @return a string of aid, quantity, the NGOName, and the NGO manpower in a suitable format for a CSV file.
      */
     public String toCSVString() {
         return this.aid + "," + this.quantity + "," + this.user.getNGOName() + "," + this.user.getManpower() + "\n";
     }
     /**
-     * Returns the content of aid, quantity, the NGOName, and the NGO manpower
+     * Returns the content of aid, quantity, the NGOName, and the NGO manpower.
      * 
-     * @return returns a string of the content of aid, the value of quantity, the content of NGOName, and the value of manpower in an appropriate string format
+     * @return returns a string of the content of aid, the value of quantity, the content of NGOName, and the value of manpower in an appropriate string format.
      */
     @Override
     public String toString() {

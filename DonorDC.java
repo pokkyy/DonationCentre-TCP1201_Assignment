@@ -11,13 +11,13 @@ import java.util.Scanner;
 public abstract class DonorDC {
     private static Donor currentUser = new Donor();
     /**
-     * Constructs an DonorDC object with the contents set to null
+     * Constructs an DonorDC object with the contents set to null.
      */
     public DonorDC() {}
     /**
-     * Returns the amount of donations that has been received by NGOs done by the current Donor logged in
+     * Returns the amount of donations that has been received by NGOs done by the current Donor logged in.
      * 
-     * @return the amount of donations the current Donor has donated, and were received by NGOs
+     * @return the amount of donations the current Donor has donated, and were received by NGOs.
      */
     public static int aidsReceivedCount() {
         ArrayList<String> aidsList = DonorAids.getFilteredAidsList(currentUser, "aidsList.csv");
@@ -40,7 +40,7 @@ public abstract class DonorDC {
         DonorDCMenu();
     }
     /**
-     * This method is used in conjunction with the DonorDCMenu. It prints out the list of menu options for the user
+     * This method is used in conjunction with the DonorDCMenu. It prints out the list of menu options for the user.
      * The donor's DonorID, phone number, and the amount of donations they've made that have been recevied by NGOs will be displayed.
      */
     private static void printMenu() {
@@ -92,7 +92,7 @@ public abstract class DonorDC {
     }
     /**
      * This method prints a list of options the user will be able to do concerning aids.
-     * It is to be used in conjunction with the viewAidsOptions method
+     * It is to be used in conjunction with the viewAidsOptions method.
      */
     private static void printViewAidsMenu() {
         System.out.println  ();
@@ -103,7 +103,7 @@ public abstract class DonorDC {
         System.out.print    ("> ");
     }
     /**
-     * This method will show the user a list of options they are able to do concerning aids received by NGOs
+     * This method will show the user a list of options they are able to do concerning aids received by NGOs.
      * The user will then be able to input the desired option they wish to do.
      */
     private static void viewAidsOptions() {
@@ -139,7 +139,7 @@ public abstract class DonorDC {
     }
     /**
      * This method prints a list of options the user will be able to do concerning aids.
-     * It is to be used in conjunction with the viewAidsOptions method
+     * It is to be used in conjunction with the viewAidsOptions method.
      */
     private static void printAidDonatedMenu() {
         System.out.println  ();

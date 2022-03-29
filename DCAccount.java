@@ -10,61 +10,61 @@ public abstract class DCAccount {
     private String password;
     private boolean status;
     /**
-     * Constructs a DCAccount and sets the password and status to null
+     * Constructs a DCAccount and sets the password and status to null.
      */
     public DCAccount(){}
     /**
      * Constructs a DCAccount and sets the password and status to the specified content.
      * 
-     * @param password the password to set
-     * @param status sets the status of the account
+     * @param password the password to set.
+     * @param status sets the status of the account.
      */
     public DCAccount(String password, boolean status) {
         this.password = password;
         this.status = status;
     }
     /**
-     * Returns the password
+     * Returns the password.
      * 
-     * @return returns the contents of password
+     * @return returns the contents of password.
      */
     public String getPassword() {
         return this.password;
     }
     /**
-     * Returns the status of the account
+     * Returns the status of the account.
      * 
-     * @return true if active, false otherwise
+     * @return true if active, false otherwise.
      */
     public boolean getStatus() {
         return this.status;
     }
     /**
-     * Sets the status of the account
+     * Sets the status of the account.
      * 
-     * @param status the status of the account. Either true or false
+     * @param status the status of the account. Either true or false.
      */
     public void setStatus(boolean status) {
         this.status = status;
     }
     /**
-     * Sets the password to the content of newPassword
+     * Sets the password to the content of newPassword.
      * 
-     * @param newPassword the new content to replace password
+     * @param newPassword the new content to replace password.
      */
     public void setPassword(String newPassword) {
         this.password = newPassword;
     }
     /**
-     * Returns a string in the appropriate CSV format
+     * Returns a string in the appropriate CSV format.
      * 
-     * @return string in CSV format
+     * @return string in CSV format.
      */
     public abstract String toCSVString();
     /**
-     * Returns the content an object in an appropriate string format
+     * Returns the content an object in an appropriate string format.
      * 
-     * @return returns a string of the object's contents
+     * @return returns a string of the object's contents.
      */
     public abstract String toString();
 }

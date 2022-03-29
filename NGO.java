@@ -4,7 +4,7 @@ import java.io.Writer;
 import java.util.HashSet;
 
 /**
- * This is the NGO class It contains methods to create an NGO and retrieve and manipulate data related to an NGO
+ * This is the NGO class It contains methods to create an NGO and retrieve and manipulate data related to an NGO.
  * 
  * @author Anis Hazirah Mohamad Sabry
  * @version 17
@@ -17,12 +17,12 @@ public class NGO extends DCAccount implements Comparable<NGO>{
      */
     public NGO() {}
     /**
-     * Constructs an NGO with the specificed NGOName, password, and manpower
+     * Constructs an NGO with the specificed NGOName, password, and manpower.
      * 
-     * @param NGOName the content of NGOName
-     * @param password the content of password
-     * @param manpower the value of manpower
-     * @param status the status of the NGO account
+     * @param NGOName the content of NGOName.
+     * @param password the content of password.
+     * @param manpower the value of manpower.
+     * @param status the status of the NGO account.
      */
     public NGO(String NGOName, String password, int manpower, boolean status) {
         super(password, status);
@@ -30,36 +30,36 @@ public class NGO extends DCAccount implements Comparable<NGO>{
         this.manpower = manpower;
     }
     /**
-     * Returns the content of NGOName of an NGO
+     * Returns the content of NGOName of an NGO.
      * 
-     * @return the content of NGOName
+     * @return the content of NGOName.
      */
     public String getNGOName() {
         return NGOName;
     }
     /**
-     * Returns the value of manpower of an NGO
+     * Returns the value of manpower of an NGO.
      * 
-     * @return the value of manpower
+     * @return the value of manpower.
      */
     public int getManpower() {
         return manpower;
     }
     /**
-     * Sets the value of manpower to the specificed value desired by the user
+     * Sets the value of manpower to the specificed value desired by the user.
      * 
-     * @param newManpower the new value of manpower
+     * @param newManpower the new value of manpower.
      */
     public void setManpower(int newManpower) {
         this.manpower = newManpower;
     }
     /**
      * Changes the password of an NGO.
-     * The user is required to verify the account with the old password before they are able to change their password
-     * The new password is saved into the NGOAccounts.csv file
+     * The user is required to verify the account with the old password before they are able to change their password.
+     * The new password is saved into the NGOAccounts.csv file.
      * 
-     * @param oldPassword the old password of the user who wants to change password
-     * @param newPassword the new password for the user
+     * @param oldPassword the old password of the user who wants to change password.
+     * @param newPassword the new password for the user.
      */
     protected void changePassword(String oldPassword, String newPassword) {        
         HashSet<NGO> NGOs = NGOAccountHandler.getNGOs();
@@ -83,9 +83,9 @@ public class NGO extends DCAccount implements Comparable<NGO>{
         }
     }
     /**
-     * Changes the manpower of an NGO. The new manpower is written into the NGOAccounts.csv file
+     * Changes the manpower of an NGO. The new manpower is written into the NGOAccounts.csv file.
      * 
-     * @param newManpower the new manpower for the user
+     * @param newManpower the new manpower for the user.
      */
     protected void changeManpower(int newManpower) {
         HashSet<NGO> NGOs = NGOAccountHandler.getNGOs();
@@ -104,7 +104,7 @@ public class NGO extends DCAccount implements Comparable<NGO>{
         }
     }
     /**
-     * Writes an NGO account into the NGOAccounts.csv file
+     * Writes an NGO account into the NGOAccounts.csv file.
      */
     protected void addNGOtoFile() {
         try {
@@ -135,9 +135,9 @@ public class NGO extends DCAccount implements Comparable<NGO>{
         }
     }
     /**
-     * Compares between two NGO objects based on their NGOName content
+     * Compares between two NGO objects based on their NGOName content.
      * 
-     * @return returns a 1 if they are equal. Returns -1 if they are not equal
+     * @return returns a 1 if they are equal. Returns -1 if they are not equal.
      */
     @Override
     public int compareTo(NGO o) {
@@ -147,17 +147,17 @@ public class NGO extends DCAccount implements Comparable<NGO>{
             return -1;
     }
     /**
-     * Returns a string of NGO object in the appropriate CSV format
+     * Returns a string of NGO object in the appropriate CSV format.
      * 
-     * @return string of NGOName, password, and manpower in CSV format
+     * @return string of NGOName, password, and manpower in CSV format.
      */
     public String toCSVString() {
         return this.NGOName + "," + this.getPassword() + "," + this.manpower + "," + this.getStatus() + "\n";
     }
     /**
-     * Returns the content of NGOName and manpower in an appropriate string format
+     * Returns the content of NGOName and manpower in an appropriate string format.
      * 
-     * @return returns a string of NGOName, password, and manpower
+     * @return returns a string of NGOName, password, and manpower.
      */
     @Override
     public String toString() {

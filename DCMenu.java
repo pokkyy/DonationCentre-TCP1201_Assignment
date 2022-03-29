@@ -1,7 +1,6 @@
 import java.util.Scanner;
 /**
- * The starting point of the Donation Centre program.
- * It contains the menu options to choose that are available at the DC.
+ * The starting point of the Donation Centre program. It contains the menu options to choose that are available at the DC.
  * The user is able to choose between 4 options- logging in as a donor, logging in as an NGO, sorting the donations at DC, or exiting the program.
  * 
  * Requires the following files to be able to function properly:
@@ -55,8 +54,8 @@ public abstract class DCMenu {
         } while (choice != 0);
     }
     /**
-     * This method prints a welcome screen for the user that will pop up once they enter the program
-     * The user is required to press enter to enter the program
+     * This method prints a welcome screen for the user that will pop up once they enter the program.
+     * The user is required to press enter to enter the program.
      */
     private static void printWelcome() {
         Scanner input = new Scanner(System.in);
@@ -69,7 +68,7 @@ public abstract class DCMenu {
     }
     /**
      * This method prints out the exit message for the user.
-     * It will thank them for using the program
+     * It will thank them for using the program.
      */
     private static void printExitMessage() {
         System.out.println();
@@ -83,7 +82,7 @@ public abstract class DCMenu {
      * A user will shown a welcome message and will then be shown a menu full of options they are able to choose from.
      * Once they've chosen to exit the program, they will be greeted with an exit message.
      * 
-     * @param args an array of command line arguments for the program
+     * @param args an array of command line arguments for the program.
      */
     public static void main(String[] args) {
         printWelcome();

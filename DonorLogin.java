@@ -1,15 +1,14 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
- *  This is the DonorLogin class.
- *  It is a specialised login screen and login menu for donors registered to a DC
+ *  This is the DonorLogin class. It is a specialised login screen and login menu for donors registered to a DC.
  * 
  * @author Anis Hazirah Mohamad Sabry
  * @version 17
  */
 public abstract class DonorLogin {
     /**
-     * No argument constructor for DonorLogin
+     * No argument constructor for DonorLogin.
      */
     public DonorLogin () {}
     /**
@@ -66,8 +65,7 @@ public abstract class DonorLogin {
         System.out.println("Returning to DC menu.");
     }
     /**
-     * This is the login method for the Donor.
-     * Users will enter their Donor ID and Donor password. The ID and password are verified before they are taken to the main menu.
+     * This is the login method for the Donor. Users will enter their Donor ID and Donor password. The ID and password are verified before they are taken to the main menu.
      * If either Donor ID or Donor password is incorrect, the method will continue to ask the user for input until the correct one is received.
      */
     private static void loginDonor() {
@@ -120,7 +118,7 @@ public abstract class DonorLogin {
         System.out.println("Please log in again.");
     }
     /**
-     * Allows the user to reactive an inactive donor account
+     * Allows the user to reactive an inactive donor account.
      */
     private static void reactiveDonor() {
         System.out.println();

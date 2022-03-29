@@ -7,8 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
- * This is the Donor Account Handler class.
- * It contains methods to handle existing Donor Accounts in a DC
+ * This is the Donor Account Handler class. It contains methods to handle existing Donor Accounts in a DC.
  * 
  * @author Anis Hazirah Mohamad Sabry
  * @version 17
@@ -22,10 +21,10 @@ public class DonorAccountHandler {
      * Returns a true or false if a donor account exists within the file based on their donorID.
      * If a donor account does not exist, a new account is created.
      * 
-     * @param donorID the donor id of the user's choosing
-     * @param password the password of the donor account the user chooses
-     * @param phoneNumber the phone number of the donor
-     * @return false if an account exists within the file, true if it does not exist
+     * @param donorID the donor id of the user's choosing.
+     * @param password the password of the donor account the user chooses.
+     * @param phoneNumber the phone number of the donor.
+     * @return false if an account exists within the file, true if it does not exist.
      */
     protected static boolean createDonor(String donorID, String password, String phoneNumber) {
         HashSet<Donor> DonorProfile = getDonors();
@@ -44,8 +43,8 @@ public class DonorAccountHandler {
     /**
      * Verifies if a donor account is valid based on the donorID and the password input by the user.
      * 
-     * @param donorID the ID of the donor
-     * @param password the password of the donor account
+     * @param donorID the ID of the donor.
+     * @param password the password of the donor account.
      * @return a true if the account exists and the password is correct, false otherwise.
      */
     protected static boolean verifyAccount(String donorID, String password) {
@@ -69,9 +68,9 @@ public class DonorAccountHandler {
     }
     /**
      * Returns a HashSet containing all the Donor accounts found within the file.
-     * The Donor consists of the donorID, the password, and donor's phone number
+     * The Donor consists of the donorID, the password, and donor's phone number.
      * 
-     * @return HashSet of all the donor accounts found within the file
+     * @return HashSet of all the donor accounts found within the file.
      */
     protected static HashSet<Donor> getDonors() {
         HashSet<Donor> Donors = new HashSet<>();
@@ -91,9 +90,9 @@ public class DonorAccountHandler {
         return Donors;
     }
     /**
-     * Returns a donor object found within the file based on donorID given
+     * Returns a donor object found within the file based on donorID given.
      * 
-     * @param donorID the donorID of the donor the user wishes to find
+     * @param donorID the donorID of the donor the user wishes to find.
      * @return the donor object associated with the donorID given. If no matches are found, return null.
      */
     protected static Donor getUser(String donorID) {
@@ -109,8 +108,8 @@ public class DonorAccountHandler {
     /**
      * Sets an inactive account's status to active.
      * 
-     * @param name the name of the account to be reactivated
-     * @param password the password of the account to be reactivated
+     * @param name the name of the account to be reactivated.
+     * @param password the password of the account to be reactivated.
      * @return returns the status of the account. If it is reactivated then it returns true, else false.
      */
     protected static boolean reactiveDonor (String name, String password) {

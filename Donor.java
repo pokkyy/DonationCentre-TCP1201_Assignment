@@ -13,16 +13,16 @@ public class Donor extends DCAccount implements Comparable<Donor> {
     private String donorID;
     private String phoneNumber;
     /**
-     * Constructs a donor object with the content set to null
+     * Constructs a donor object with the content set to null.
      */
     public Donor(){}
     /**
-     * Constructs a donor object with the content set to the specified value
+     * Constructs a donor object with the content set to the specified value.
      * 
-     * @param donorID the specified donorID for Donor
-     * @param password the specified password for Donor
-     * @param phoneNumber the specified phone number for Donor
-     * @param status the status of the donor account
+     * @param donorID the specified donorID for Donor.
+     * @param password the specified password for Donor.
+     * @param phoneNumber the specified phone number for Donor.
+     * @param status the status of the donor account.
      */
     public Donor(String donorID, String password, String phoneNumber, boolean status) {
         super(password, status);
@@ -30,33 +30,33 @@ public class Donor extends DCAccount implements Comparable<Donor> {
         this.phoneNumber = phoneNumber;
     }
     /**
-     * Returns the donorID of a donor object
+     * Returns the donorID of a donor object.
      * 
-     * @return string of donor's donorID
+     * @return string of donor's donorID.
      */
     public String getDonorID(){
         return this.donorID;
     }
     /**
-     * Returns the donor's phone number
+     * Returns the donor's phone number.
      * 
-     * @return string of donor's phone number
+     * @return string of donor's phone number.
      */
     public String getPhoneNumber(){
         return this.phoneNumber;
     }
     /**
-     * Sets a new phone number for a donor
+     * Sets a new phone number for a donor.
      * 
-     * @param newPhoneNumber the new phone number for donor
+     * @param newPhoneNumber the new phone number for donor.
      */
     public void setPhoneNumber(String newPhoneNumber) {
         this.phoneNumber = newPhoneNumber;
     }
     /**
-     * Changes the Donor's phone number to the specified content
+     * Changes the Donor's phone number to the specified content.
      * 
-     * @param newPhoneNumber the new phone number for Donor
+     * @param newPhoneNumber the new phone number for Donor.
      */
     protected void changePhoneNumber(String newPhoneNumber) {
         HashSet<Donor> Donors = DonorAccountHandler.getDonors();
@@ -79,8 +79,8 @@ public class Donor extends DCAccount implements Comparable<Donor> {
      * The user is required to verify their account before they are able to change their password.
      * The new password is then saved into the file.
      * 
-     * @param oldPassword the old password of the user who wants to change their password
-     * @param newPassword the new password for the user
+     * @param oldPassword the old password of the user who wants to change their password.
+     * @param newPassword the new password for the user.
      */
     protected void changePassword(String oldPassword, String newPassword) {
         HashSet<Donor> Donors = DonorAccountHandler.getDonors();
@@ -103,7 +103,7 @@ public class Donor extends DCAccount implements Comparable<Donor> {
         }
     }
     /**
-     * Write a donor account into the DonorAccounts.csv file
+     * Write a donor account into the DonorAccounts.csv file.
      */
     protected void addDonortoFile() {
         try {
@@ -134,9 +134,9 @@ public class Donor extends DCAccount implements Comparable<Donor> {
         }
     }
     /**
-     * Compare between two donor accounts based on their DonorID
+     * Compare between two donor accounts based on their DonorID.
      * 
-     * @return 1 if they matched, -1 if not
+     * @return 1 if they matched, -1 if not.
      */
     @Override
     public int compareTo(Donor o) {
@@ -146,18 +146,18 @@ public class Donor extends DCAccount implements Comparable<Donor> {
             return -1;
     }
     /**
-     * Returns a string of donorID, donor password, and donor phone number in the appropriate CSV format
+     * Returns a string of donorID, donor password, and donor phone number in the appropriate CSV format.
      * 
-     * @return string of donorID, donor password, and donor phone number in CSV format
+     * @return string of donorID, donor password, and donor phone number in CSV format.
      */
     @Override
     public String toCSVString() {
         return this.donorID + "," + this.phoneNumber + "," + this.getPassword() + "," + this.getStatus() + "\n";
     }
     /**
-     * Returns a string of a donor object in string format
+     * Returns a string of a donor object in string format.
      * 
-     * @return string of donorID and donor phone number
+     * @return string of donorID and donor phone number.
      */
     @Override
     public String toString() {

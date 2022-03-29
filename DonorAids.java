@@ -21,7 +21,7 @@ public class DonorAids {
      */
     public DonorAids() {} 
     /**
-     * Creates an DonorAids with the speicified donor, aid(s) donated, and the quantity of the aid
+     * Creates an DonorAids with the speicified donor, aid(s) donated, and the quantity of the aid.
      * 
      * @param aid the content of aid
      * @param quantity the value of quantity
@@ -52,8 +52,8 @@ public class DonorAids {
      * To be used with the getAidsDonated and getFilteredaidsDonated methods.
      * This method inputs the given string into a suitable format to be output to the user.
      * 
-     * @param input the desired aids string to be output to the user
-     * @return a string that is appropriately formatted to be output to the user
+     * @param input the desired aids string to be output to the user.
+     * @return a string that is appropriately formatted to be output to the user.
      */
     private static String aidsDonatedtoString(String[] input) {
         String DonorID = input[0];
@@ -68,8 +68,8 @@ public class DonorAids {
      * To be used with the getAidsList and getFilteredAidsList methods.
      * This method inputs the given string into a suitable format to be output to the user.
      * 
-     * @param input the desired aids string to be output to the user
-     * @return a string that is appropriately formatted to be output to the user
+     * @param input the desired aids string to be output to the user.
+     * @return a string that is appropriately formatted to be output to the user.
      */
     private static String getAidstoString(String[] input) {
 
@@ -85,8 +85,8 @@ public class DonorAids {
     /**
      * Retrieves every entry from a file containing all of the aids donated by every Donor.
      * 
-     * @param filename the specified filename the method will retrieve data from
-     * @return an ArrayList containing of all the aids donated by the Donors
+     * @param filename the specified filename the method will retrieve data from.
+     * @return an ArrayList containing of all the aids donated by the Donors.
      */
     public static ArrayList<String> getAidsList(String filename) {
         ArrayList<String> aidsList = new ArrayList<>();
@@ -113,11 +113,11 @@ public class DonorAids {
         return aidsList;
     }
     /**
-     * Retrieves all the aids donated by a specified Donor from files containing the requested information
+     * Retrieves all the aids donated by a specified Donor from files containing the requested information.
      *
-     * @param DonorFilter user inputs the specific Donor whos donations they wish to view
-     * @param filename the name of the file the method will read from
-     * @return an ArrayList of aids donated by the specified Donor
+     * @param DonorFilter user inputs the specific Donor whos donations they wish to view.
+     * @param filename the name of the file the method will read from.
+     * @return an ArrayList of aids donated by the specified Donor.
      */
     public static ArrayList<String> getFilteredAidsList(Donor DonorFilter, String filename) {
         ArrayList<String> aidsList = new ArrayList<>();
@@ -150,17 +150,17 @@ public class DonorAids {
         return aidsList;
     }
     /**
-     * Returns the aid, quantity, the DonorID, and the Donor manpower
+     * Returns the aid, quantity, the DonorID, and the Donor manpower.
      * 
-     * @return a string of aid, quantity, the DonorID, and the Donor manpower in a suitable format for a CSV file
+     * @return a string of aid, quantity, the DonorID, and the Donor manpower in a suitable format for a CSV file.
      */
     public String toCSVString() {
         return this.user.getDonorID() + "," + this.user.getPhoneNumber() + "," + this.aid + "," + this.quantity + "\n";
     }
     /**
-     * Returns the content of aid, quantity, the DonorID, and the Donor manpower
+     * Returns the content of aid, quantity, the DonorID, and the Donor manpower.
      * 
-     * @return returns a string of the content of aid, the value of quantity, the content of DonorID, and the value of manpower in an appropriate string format
+     * @return returns a string of the content of aid, the value of quantity, the content of DonorID, and the value of manpower in an appropriate string format.
      */
     @Override
     public String toString() {
