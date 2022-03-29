@@ -1,12 +1,7 @@
 import java.util.Scanner;
 /**
- * The starting point of the Donation Centre program. It contains the menu options to choose that are available at the DC.
+ * The menu of the Donation Centre program. It contains several options to choose that are available at the DC.
  * The user is able to choose between 4 options- logging in as a donor, logging in as an NGO, sorting the donations at DC, or exiting the program.
- * 
- * Requires the following files to be able to function properly:
- * DCAccount.java, Donor.java, DonorAids.java, DonorDC.java, DonorLogin.java, aidsList.csv, aidsDonated.csv, donorAccounts.csv,
- * NGOLogin.java, NGODC.java, NGO.java, DonorNGO.java, NGOAids.java, DonorNGO.java, aidsNeeded.csv,
- * Aids.java, AidsNeeded.java, aidsDonated.java, DC.java
  * 
  * @author Anis Hazirah binti Mohamad Sabry
  * @version 17
@@ -32,7 +27,7 @@ public abstract class DCMenu {
      * A user will be shown a list of options they can choose from and asked for their input of choice.
      * Based on their input, they will be taken to the option of their choice.
      */
-    public static void DCMenuOptions() {
+    protected static void DCMenuOptions() {
         Scanner scanner = new Scanner(System.in);
         int choice = 5;
         do {
@@ -57,7 +52,7 @@ public abstract class DCMenu {
      * This method prints a welcome screen for the user that will pop up once they enter the program.
      * The user is required to press enter to enter the program.
      */
-    private static void printWelcome() {
+    public static void printWelcome() {
         Scanner input = new Scanner(System.in);
         System.out.println();
         System.out.println("----------------------------------------------------------------");
@@ -70,13 +65,26 @@ public abstract class DCMenu {
      * This method prints out the exit message for the user.
      * It will thank them for using the program.
      */
-    private static void printExitMessage() {
+    public static void printExitMessage() {
         System.out.println();
         System.out.println("----------------------------------------------------------------");
         System.out.println("Thank you for using the Donation Centre program!");
         System.out.println("----------------------------------------------------------------");
         System.out.println();
     }
+}
+/**
+ * The starting point of the program. It contains the main method funnction.
+ * 
+ * Requires the following files to be able to function properly:
+ * DCAccount.java, Donor.java, DonorAids.java, DonorDC.java, DonorLogin.java, aidsList.csv, aidsDonated.csv, donorAccounts.csv,
+ * NGOLogin.java, NGODC.java, NGO.java, DonorNGO.java, NGOAids.java, DonorNGO.java, aidsNeeded.csv,
+ * Aids.java, AidsNeeded.java, aidsDonated.java, DC.java
+ * 
+ * @author Anis Hazirah binti Mohamad Sabry
+ * @version 17
+ */
+class DCStart {
     /**
      * The main method of the program.
      * A user will shown a welcome message and will then be shown a menu full of options they are able to choose from.
@@ -85,8 +93,8 @@ public abstract class DCMenu {
      * @param args an array of command line arguments for the program.
      */
     public static void main(String[] args) {
-        printWelcome();
-        DCMenuOptions();
-        printExitMessage();
+        DCMenu.printWelcome();
+        DCMenu.DCMenuOptions();
+        DCMenu.printExitMessage();
     }
 }
